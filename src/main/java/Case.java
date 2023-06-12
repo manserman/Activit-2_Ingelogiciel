@@ -1,4 +1,4 @@
-import act.ElementDeGrille;
+
 
 public class Case implements ElementDeGrille{
     int valeur;
