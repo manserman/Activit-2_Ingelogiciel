@@ -1,11 +1,20 @@
 import java.util.Set;
 
-public class Sudoku implements Grille {
-    private int x,y;
-
-    public Sudoku(int x,int y){
-      this.x=x;
-      this.y=y;
+public class GrilleImpl implements Grille {
+    private int lignes=9;
+    private int colonnes=9;
+    private ElementDeGrille[] elementsInitiales;
+    public GrilleImpl(int x,int y){
+      this.lignes=x;
+      this.colonnes=y;
+    }
+    public GrilleImpl(ElementDeGrille[] elements){
+     this.elementsInitiales=elements;
+    }
+     public GrilleImpl(int x,int y,ElementDeGrille[] elements){
+      this.lignes=x;
+      this.colonnes=y;
+      this.elementsInitiales=elements;
     }
     @Override
     public Set<ElementDeGrille> getElements() {
