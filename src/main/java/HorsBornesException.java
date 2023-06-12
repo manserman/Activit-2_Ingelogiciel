@@ -8,8 +8,8 @@ package act;
 /**
  * class HorsBornesEception.
  */
-public class HorsBornesEception  extends Exception {
-   public HorsBornesEception()
+public class HorsBornesException  extends Exception {
+   public HorsBornesException()
    {
     super("case hors bornes");
    }
