@@ -1,10 +1,26 @@
-public class ElementDeGrilleImplAsChar implements ElementDeGrille{
+public class ElementDeGrilleImplAsChar implements ElementDeGrille {
     private char valeur;
-    public ElementDeGrilleImplAsChar(char value){
-        this.valeur=value;
+    
+
+    public ElementDeGrilleImplAsChar(char value) {
+        super();
+        this.valeur = value;
     }
-    public char getValeur()
-    {
-        return this.valeur;
+
+  
+    @Override
+    public boolean equals(Object elem) {
+        if (!(elem instanceof ElementDeGrilleImplAsChar)) {
+            return false;
+        }
+        ElementDeGrilleImplAsChar el = (ElementDeGrilleImplAsChar) elem;
+        if (this.valeur == el.valeur)
+            return true;
+
+        return false;
     }
+   public char getValeur(){
+    return this.valeur;
+   }
+
 }

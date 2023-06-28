@@ -11,6 +11,7 @@ import java.util.Set;
  * @author Sébastien Choplin <sebastien.choplin@u-picardie.fr>
  */
 public interface Grille {
+    
 
     /**
      * Renvoie les ElementDeGrille pouvant exister dans le grille.
@@ -35,7 +36,7 @@ public interface Grille {
      * @throws ValeurInitialeModificationException si une valeur initiale de la grille est en position x,y
      */
     void setValue(int x, int y, ElementDeGrille value)
-            throws HorsBornesException, ValeurImpossibleException, CaractereInterditException, ValeurInitialeModificationException;
+            throws HorsBornesException, ValeurImpossibleException, ElementInterditException, ValeurInitialeModificationException;
 
     /**
      * Renvoie une valeur de la grille.
@@ -65,7 +66,7 @@ public interface Grille {
      * @throws ElementInterditException si value n'est pas un caractere pouvant être mis dans la grille
      */
     boolean isPossible(int x, int y, ElementDeGrille value)
-            throws HorsBornesException, CaractereInterditException;
+            throws HorsBornesException, ValeurImpossibleException;
 
     /**
      * @param x     position x dans la grille

@@ -1,3 +1,5 @@
+
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,7 +23,6 @@ import java.util.Map;
  * @author Sébastien Choplin <sebastien.choplin@u-picardie.fr>
  */
 public class GrilleParser {
-    private static final char EMPTY = '-';
 
     /**
      * constructeur.
@@ -35,10 +36,9 @@ public class GrilleParser {
      * @param in recu
      * @throws IOException               format de grille en caractere incorrect
      * @throws ValeurImpossibleException si la grille ne respècte pas les règles
-     * @throws CaractereInterditException
      */
     public static Grille parse(final InputStream in)
-            throws IOException, ValeurImpossibleException, ValeurInitialeModificationException, HorsBornesException, ValeurImpossibleException, CaractereInterditException {
+            throws IOException,  ValeurInitialeModificationException, HorsBornesException, ValeurImpossibleException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
 
 
@@ -64,7 +64,8 @@ public class GrilleParser {
                 throw new IllegalArgumentException("pas le bon nombre de valeurs possibles");
             }
             ElementDeGrille[] elementDeGrilles = elementDeGrilleMap.values().toArray(new ElementDeGrille[]{});
-            Grille grille = new GrilleImpl(elementDeGrilles);
+            ElementDeGrille[][] grilleTab = new ElementDeGrille[dimension][dimension];
+
 
             for (int i = 0; i < dimension; i++) {
                 line = reader.readLine();
@@ -78,13 +79,12 @@ public class GrilleParser {
                         if (elementDeGrille == null) {
                             throw new ValeurImpossibleException(String.valueOf(c));
                         }
-                        grille.setValue(i, j, elementDeGrille);
+                        grilleTab[i][j] = elementDeGrille;
                     }
                 }
             }
 
-
-            return grille;
+            return new GrilleImpl(elementDeGrilles, grilleTab);
         }
     }
 
