@@ -1,5 +1,3 @@
-
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,8 +17,8 @@ import java.util.Map;
  * 1--3
  * 3--4
  * -1-2
- *
- * @author Sébastien Choplin <sebastien.choplin@u-picardie.fr>
+ * @author Sébastien Choplin 
+ * <sebastien.choplin@u-picardie.fr>
  */
 public class GrilleParser {
 
@@ -32,13 +30,12 @@ public class GrilleParser {
 
     /**
      * Fonction parse.
-     *
      * @param in recu
-     * @throws IOException               format de grille en caractere incorrect
+     * @throws IOException format de grille en caractere incorrect
      * @throws ValeurImpossibleException si la grille ne respècte pas les règles
      */
     public static Grille parse(final InputStream in)
-            throws IOException,  ValeurInitialeModificationException, HorsBornesException, ValeurImpossibleException {
+        throws IOException,  ValeurInitialeModificationException, HorsBornesException, ValeurImpossibleException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
 
 
@@ -83,9 +80,7 @@ public class GrilleParser {
                     }
                 }
             }
-
             return new GrilleImpl(elementDeGrilles, grilleTab);
         }
     }
-
 }

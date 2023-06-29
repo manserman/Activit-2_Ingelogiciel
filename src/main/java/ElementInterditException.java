@@ -1,6 +1,5 @@
 /**
  * Activité 2, ElementInterditException.java.
- * 
  * Auteur : Mohamadou Mansour
  * package-info.java: toutes les infos sur le package
  */
@@ -21,7 +20,6 @@ public class ElementInterditException extends Exception {
    
    /**
     * Constructeur de ElementInterditException avec un message personnalisé.
-    * 
     * @param message Le message d'erreur personnalisé.
     */
    public ElementInterditException(String valueOf) {

@@ -1,18 +1,13 @@
-
-
 import java.util.Set;
 
-/**
- * Interface de grille de sudoku. Chaque case d'une Grille peut contenir un ElementDeGrille ou null si aucun élément n'est placé.
- * Une Grille doit toujours respecter les règles du sudoku.
- * <p>
- * Une Grille peut contenir des cases qui ne doivent pas être modifiées (les valeurs initiales de la Grille)
- *
- * @author Sébastien Choplin <sebastien.choplin@u-picardie.fr>
- */
-public interface Grille {
+   /**
+    * Interface de grille de sudoku. Chaque case d'une Grille peut contenir un ElementDeGrille ou null si aucun élément n'est placé.
+    * Une Grille doit toujours respecter les règles du sudoku.
+    * Une Grille peut contenir des cases qui ne doivent pas être modifiées (les valeurs initiales de la Grille)
+    * @author Sébastien Choplin <sebastien.choplin@u-picardie.fr>
+    */
+    public interface Grille {
     
-
     /**
      * Renvoie les ElementDeGrille pouvant exister dans le grille.
      */
@@ -36,11 +31,10 @@ public interface Grille {
      * @throws ValeurInitialeModificationException si une valeur initiale de la grille est en position x,y
      */
     void setValue(int x, int y, ElementDeGrille value)
-            throws HorsBornesException, ValeurImpossibleException, ElementInterditException, ValeurInitialeModificationException;
+        throws HorsBornesException, ValeurImpossibleException, ElementInterditException, ValeurInitialeModificationException;
 
     /**
      * Renvoie une valeur de la grille.
-     *
      * @param x position x dans la grille
      * @param y position y dans la grille
      * @return élément de la grille de la case x,y, null s'il n'y a pas d'élément à cette position
@@ -66,7 +60,7 @@ public interface Grille {
      * @throws ElementInterditException si value n'est pas un caractere pouvant être mis dans la grille
      */
     boolean isPossible(int x, int y, ElementDeGrille value)
-            throws HorsBornesException, ValeurImpossibleException;
+        throws HorsBornesException, ValeurImpossibleException;
 
     /**
      * @param x     position x dans la grille

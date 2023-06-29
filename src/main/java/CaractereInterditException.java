@@ -1,7 +1,6 @@
 /**
  * Activité 2, HorsBornesEception.java.
- * 
- * Auteur : Mohamadou Mansour & Tshibangu Kevin 
+ * Auteur: Mohamadou Mansour & Tshibangu Kevin 
  * package-info.java: toutes les infos sur le package
  */
 
