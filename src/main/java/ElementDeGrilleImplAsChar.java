@@ -1,12 +1,21 @@
+/**
+ * Implémentation de l'interface ElementDeGrille utilisant un caractère comme valeur.
+ * Cette classe représente un élément de grille avec une valeur de type char.
+ * 
+ * @author Groupe_Z
+ */
 public class ElementDeGrilleImplAsChar implements ElementDeGrille {
     private char valeur;
     
-
+    /**
+     * Constructeur de la classe ElementDeGrilleImplAsChar.
+     * 
+     * @param value La valeur de l'élément de grille.
+     */
     public ElementDeGrilleImplAsChar(char value) {
         super();
         this.valeur = value;
     }
-
   
     @Override
     public boolean equals(Object elem) {
@@ -19,8 +28,13 @@ public class ElementDeGrilleImplAsChar implements ElementDeGrille {
 
         return false;
     }
-   public char getValeur(){
-    return this.valeur;
-   }
-
+    
+    /**
+     * Obtient la valeur de l'élément de grille.
+     * 
+     * @return La valeur de l'élément.
+     */
+    public char getValeur() {
+        return this.valeur;
+    }
 }

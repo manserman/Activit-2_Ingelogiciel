@@ -1,16 +1,19 @@
 /**
  * Activité 2, HorsBornesEception.java.
- *
- * @author Mohamadou Mansour
- *package-info.java: toutes les infos sur le package
+ * 
+ * Auteur : Mohamadou Mansour & Tshibangu Kevin 
+ * package-info.java: toutes les infos sur le package
  */
 
 /**
- * class HorsBornesEception.
+ * Class CaractereInterditException.
  */
-public class CaractereInterditException  extends Exception {
-   public CaractereInterditException()
-   {
-    super("case hors bornes");
+public class CaractereInterditException extends Exception {
+
+   /**
+    * Constructeur par défaut de CaractereInterditException.
+    */
+   public CaractereInterditException() {
+       super("case hors bornes");
    }
 }
