@@ -3,10 +3,10 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
 
-    /**
-     * Implémentation de l'interface Grille.
-    */
-    public class GrilleImpl implements Grille {
+/**
+* Implémentation de l'interface Grille.
+*/
+public class GrilleImpl implements Grille {
     private final int dimension;
     private boolean[][] lignesInitiales;
     private final Set<ElementDeGrille> alphabet;
@@ -16,19 +16,19 @@ import java.util.Iterator;
      * @param elementDeGrilles
      * @param grilleTab
      */
-    public GrilleImpl( ElementDeGrille[] elementDeGrilles, ElementDeGrille[][] grilleTab) {
+    public GrilleImpl(ElementDeGrille[] elementDeGrilles, ElementDeGrille[][] grilleTab) {
         dimension=elementDeGrilles.length;
         this.alphabet = new HashSet<>();
         grille=grilleTab;
-            for(int i=0; i<elementDeGrilles.length; i++) {
+            for(int i = 0; i < elementDeGrilles.length; i++) {
             this.alphabet.add(elementDeGrilles[i]);
         }
-        setInitialesPositions(); // on conserve les valeurs initiales
+        // on conserve les valeurs initiales
+        setInitialesPositions();
     }
     
     @Override
     public Set<ElementDeGrille> getElements() {
-        
         return this.alphabet;
     }
 
@@ -38,16 +38,17 @@ import java.util.Iterator;
     }
 
     @Override
-    public void setValue(int x, int y, ElementDeGrille value) throws HorsBornesException, ValeurImpossibleException, ElementInterditException, ValeurInitialeModificationException {
+    public void setValue(int x, int y, ElementDeGrille value) 
+        throws HorsBornesException, ValeurImpossibleException, ElementInterditException, ValeurInitialeModificationException {
         if(isValeurInitiale(x, y)) {
             throw new ValeurInitialeModificationException();
         }
         
-        if((x>this.dimension) || (x < 0) || (y>this.dimension) || (y < 0)) {
+        if((x > this.dimension) || (x < 0) || (y > this.dimension) || (y < 0)) {
             throw new HorsBornesException();
         }
 
-        if(value !=null && !isAlphabet(value)) {
+        if(value != null && !isAlphabet(value)) {
             throw new ElementInterditException();
         }
         this.grille[x][y] = value;
@@ -55,7 +56,7 @@ import java.util.Iterator;
 
     @Override
     public ElementDeGrille getValue(int x, int y) throws HorsBornesException {
-        if((x>this.dimension) || (x < 0) || (y>this.dimension) || (y < 0)) {
+        if((x > this.dimension) || (x < 0) || (y > this.dimension) || (y < 0)) {
             throw new HorsBornesException();
         }
         return this.grille[x][y];
@@ -76,7 +77,6 @@ import java.util.Iterator;
     @Override
     public boolean isPossible(int x, int y, ElementDeGrille value) throws HorsBornesException, ValeurImpossibleException {
         if (! isJouable(x, y, value)) {  // à voir
-            
             throw new ValeurImpossibleException(value);
         }
         return true;
@@ -92,10 +92,11 @@ import java.util.Iterator;
         for (int i = 0; i < this.dimension; i++) {
             for (int j = 0; j < this.dimension; j++) {
                 if (this.grille[i][j] != null) {
-                lignesInitiales[i][j]=true;
+                lignesInitiales[i][j] = true;
                 }
-                else 
-                lignesInitiales[i][j]=false;
+                else {
+                    lignesInitiales[i][j] = false;
+                }
             }
         }
     }
@@ -104,7 +105,7 @@ import java.util.Iterator;
     public boolean isAlphabet(ElementDeGrille element) {
         Iterator<ElementDeGrille> iterator = this.alphabet.iterator();
         while (iterator.hasNext()) {
-            if(  iterator.next().equals(element)) {
+            if(iterator.next().equals(element)) {
                 return true;
             }
         }

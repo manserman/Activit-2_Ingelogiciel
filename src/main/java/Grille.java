@@ -1,7 +1,8 @@
 import java.util.Set;
 
    /**
-    * Interface de grille de sudoku. Chaque case d'une Grille peut contenir un ElementDeGrille ou null si aucun élément n'est placé.
+    * Interface de grille de sudoku. 
+    * Chaque case d'une Grille peut contenir un ElementDeGrille ou null si aucun élément n'est placé.
     * Une Grille doit toujours respecter les règles du sudoku.
     * Une Grille peut contenir des cases qui ne doivent pas être modifiées (les valeurs initiales de la Grille)
     * @author Sébastien Choplin <sebastien.choplin@u-picardie.fr>
@@ -14,12 +15,12 @@ import java.util.Set;
     Set<ElementDeGrille> getElements();
 
     /**
-     * @return largeur/hauteur de la grille
+     * @return largeur/hauteur de la grille.
      */
     int getDimension();
 
     /**
-     * Affecte une valeur dans une case de la grille, ou null pour 'vider' la case
+     * Affecte une valeur dans une case de la grille, ou null pour 'vider' la case.
      *
      * @param x     position x dans la grille
      * @param y     position y dans la grille
@@ -63,10 +64,10 @@ import java.util.Set;
         throws HorsBornesException, ValeurImpossibleException;
 
     /**
-     * @param x     position x dans la grille
+     * @param x     position x dans la grille.
      * @param y     position y dans la grille
      * @return true si la case x,y contient une valeur initiale de la grille.
      */
-    boolean isValeurInitiale(int x,int y);
+    boolean isValeurInitiale(int x, int y);
 
 }

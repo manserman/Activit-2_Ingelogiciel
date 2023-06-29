@@ -63,7 +63,6 @@ public class GrilleParser {
             ElementDeGrille[] elementDeGrilles = elementDeGrilleMap.values().toArray(new ElementDeGrille[]{});
             ElementDeGrille[][] grilleTab = new ElementDeGrille[dimension][dimension];
 
-
             for (int i = 0; i < dimension; i++) {
                 line = reader.readLine();
                 if (line == null || line.length() != dimension) {

@@ -1,10 +1,9 @@
 /**
- * Implémentation de l'interface ElementDeGrille utilisant un caractère comme valeur.
+ * Implémentation de l'interface ElementDeGrille.
  * Cette classe représente un élément de grille avec une valeur de type char.
  * @author : Groupe_Z
  */
 public class ElementDeGrilleImplAsChar implements ElementDeGrille {
-
     /**
     * Valeur de l'élément de la grille.
     */
