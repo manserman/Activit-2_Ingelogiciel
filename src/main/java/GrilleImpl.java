@@ -13,7 +13,7 @@ public class GrilleImpl implements Grille {
     private ElementDeGrille grille[][];
 
     /**
-     * @param elementDeGrilles
+     * @param elementDeGrilles.
      * @param grilleTab
      */
     public GrilleImpl(ElementDeGrille[] elementDeGrilles, ElementDeGrille[][] grilleTab) {

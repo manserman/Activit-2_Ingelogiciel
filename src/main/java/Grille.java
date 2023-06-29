@@ -2,7 +2,8 @@ import java.util.Set;
 
    /**
     * Interface de grille de sudoku. 
-    * Chaque case d'une Grille peut contenir un ElementDeGrille ou null si aucun élément n'est placé.
+    * Chaque case d'une Grille peut contenir un ElementDeGrille 
+    * ou null si aucun élément n'est placé.
     * Une Grille doit toujours respecter les règles du sudoku.
     * Une Grille peut contenir des cases qui ne doivent pas être modifiées (les valeurs initiales de la Grille)
     * @author Sébastien Choplin <sebastien.choplin@u-picardie.fr>
@@ -11,6 +12,7 @@ import java.util.Set;
     
     /**
      * Renvoie les ElementDeGrille pouvant exister dans le grille.
+     * @return un ensemble contenant les éléments de grille possibles
      */
     Set<ElementDeGrille> getElements();
 
@@ -25,14 +27,16 @@ import java.util.Set;
      * @param x     position x dans la grille
      * @param y     position y dans la grille
      * @param value élément de grille à mettre dans la case, null pour vider la case
-     * @throws ValeurImpossibleException           si l'élément de grille n'est pas autorisé à cette position dans la grille
-     *                                             aux vues des autres valeurs de la grille
-     * @throws ElementInterditException            si l'élément de grille n'est pas autorisé dans cette grille pouvant être mis dans la grille
+     * @throws ValeurImpossibleException           si l'élément de grille n'est pas autorisé à cette position
+     *                                             dans la grille aux vues des autres valeurs de la grille
+     * @throws ElementInterditException            si l'élément de grille n'est pas autorisé dans cette grille
      * @throws HorsBornesException                 si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la grille est en position x,y
      */
+    
     void setValue(int x, int y, ElementDeGrille value)
-        throws HorsBornesException, ValeurImpossibleException, ElementInterditException, ValeurInitialeModificationException;
+        throws HorsBornesException, ValeurImpossibleException, ElementInterditException, 
+        ValeurInitialeModificationException;
 
     /**
      * Renvoie une valeur de la grille.
@@ -55,10 +59,11 @@ import java.util.Set;
      *
      * @param x     position x dans la grille
      * @param y     position y dans la grille
-     * @param value valeur a mettre dans la case
-     * @return true si value peut être placé dans la grille en position x,y en respectant les règles du sudoku et sans modifier une valeur initiale.
+     * @param value valeur à mettre dans la case
+     * @return true si value peut être placé dans la grille en position x,y en respectant les règles du sudoku
+     *         et sans modifier une valeur initiale.
      * @throws HorsBornesException      si x ou y sont hors bornes
-     * @throws ElementInterditException si value n'est pas un caractere pouvant être mis dans la grille
+     * @throws ValeurImpossibleException si la valeur est impossible à placer à cette position
      */
     boolean isPossible(int x, int y, ElementDeGrille value)
         throws HorsBornesException, ValeurImpossibleException;
