@@ -10,13 +10,13 @@ public class GrilleImpl implements Grille {
     private final int dimension;
     private boolean[][] lignesInitiales;
     private final Set<ElementDeGrille> alphabet;
-    private ElementDeGrille grille[][];
+    private ElementDeGrille[][] grille;
 
     /**
      * @param elementDeGrilles.
      * @param grilleTab
      */
-    public GrilleImpl(ElementDeGrille[] elementDeGrilles, ElementDeGrille[][] grilleTab) {
+    public GrilleImpl(final ElementDeGrille[] elementDeGrilles, final ElementDeGrille[][] grilleTab) {
         dimension=elementDeGrilles.length;
         this.alphabet = new HashSet<>();
         grille=grilleTab;
@@ -38,7 +38,7 @@ public class GrilleImpl implements Grille {
     }
 
     @Override
-    public void setValue(int x, int y, ElementDeGrille value) 
+    public void setValue(final int x, final int y, final ElementDeGrille value) 
         throws HorsBornesException, ValeurImpossibleException, ElementInterditException, ValeurInitialeModificationException {
         if(isValeurInitiale(x, y)) {
             throw new ValeurInitialeModificationException();
@@ -55,7 +55,7 @@ public class GrilleImpl implements Grille {
     }
 
     @Override
-    public ElementDeGrille getValue(int x, int y) throws HorsBornesException {
+    public ElementDeGrille getValue(final int x, final int y) throws HorsBornesException {
         if((x > this.dimension) || (x < 0) || (y > this.dimension) || (y < 0)) {
             throw new HorsBornesException();
         }
@@ -75,26 +75,26 @@ public class GrilleImpl implements Grille {
     }
 
     @Override
-    public boolean isPossible(int x, int y, ElementDeGrille value) throws HorsBornesException, ValeurImpossibleException {
-        if (! isJouable(x, y, value)) {  // à voir
+    public boolean isPossible(final int x, final int y, ElementDeGrille value) 
+        throws HorsBornesException, ValeurImpossibleException {
+        if (!isJouable(x, y, value)) {  // à voir
             throw new ValeurImpossibleException(value);
         }
         return true;
     }
 
     @Override
-    public boolean isValeurInitiale(int x, int y) {
+    public boolean isValeurInitiale(final int x, final int y) {
        return lignesInitiales[x][y];
     }
 
     private void setInitialesPositions() {
-        lignesInitiales= new boolean[dimension][dimension];
+        lignesInitiales = new boolean[dimension][dimension];
         for (int i = 0; i < this.dimension; i++) {
             for (int j = 0; j < this.dimension; j++) {
                 if (this.grille[i][j] != null) {
-                lignesInitiales[i][j] = true;
-                }
-                else {
+                    lignesInitiales[i][j] = true;
+                } else {
                     lignesInitiales[i][j] = false;
                 }
             }
@@ -102,7 +102,7 @@ public class GrilleImpl implements Grille {
     }
 
 
-    public boolean isAlphabet(ElementDeGrille element) {
+    public boolean isAlphabet(final ElementDeGrille element) {
         Iterator<ElementDeGrille> iterator = this.alphabet.iterator();
         while (iterator.hasNext()) {
             if(iterator.next().equals(element)) {
@@ -112,7 +112,7 @@ public class GrilleImpl implements Grille {
         return false;
     }
 
-    public boolean isJouable(int x, int y, ElementDeGrille element) {
+    public boolean isJouable(final int x, final int y, final ElementDeGrille element) {
         // Parcours de la ligne
         for (int i = 0; i < this.dimension; i++) {
             if (i != x && this.grille[i][y] != null && this.grille[i][y].equals(element)) {
@@ -144,7 +144,7 @@ public class GrilleImpl implements Grille {
         return true;
     }
 
-    private boolean isRegionJouable(int startX, int startY) {
+    private boolean isRegionJouable(final int startX, final int startY) {
         ArrayList<ElementDeGrille> elements = new ArrayList<>();
 
         int dimensionCase = (int) Math.sqrt(this.dimension);
