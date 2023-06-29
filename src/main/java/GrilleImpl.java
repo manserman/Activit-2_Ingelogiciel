@@ -17,10 +17,10 @@ public class GrilleImpl implements Grille {
      * @param grilleTab
      */
     public GrilleImpl(final ElementDeGrille[] elementDeGrilles, final ElementDeGrille[][] grilleTab) {
-        dimension=elementDeGrilles.length;
+        dimension = elementDeGrilles.length;
         this.alphabet = new HashSet<>();
-        grille=grilleTab;
-            for(int i = 0; i < elementDeGrilles.length; i++) {
+        grille = grilleTab;
+            for (int i = 0; i < elementDeGrilles.length; i++) {
             this.alphabet.add(elementDeGrilles[i]);
         }
         // on conserve les valeurs initiales
@@ -40,15 +40,15 @@ public class GrilleImpl implements Grille {
     @Override
     public void setValue(final int x, final int y, final ElementDeGrille value) 
         throws HorsBornesException, ValeurImpossibleException, ElementInterditException, ValeurInitialeModificationException {
-        if(isValeurInitiale(x, y)) {
+        if (isValeurInitiale(x, y)) {
             throw new ValeurInitialeModificationException();
         }
         
-        if((x > this.dimension) || (x < 0) || (y > this.dimension) || (y < 0)) {
+        if ((x > this.dimension) || (x < 0) || (y > this.dimension) || (y < 0)) {
             throw new HorsBornesException();
         }
 
-        if(value != null && !isAlphabet(value)) {
+        if (value != null && !isAlphabet(value)) {
             throw new ElementInterditException();
         }
         this.grille[x][y] = value;
@@ -56,7 +56,7 @@ public class GrilleImpl implements Grille {
 
     @Override
     public ElementDeGrille getValue(final int x, final int y) throws HorsBornesException {
-        if((x > this.dimension) || (x < 0) || (y > this.dimension) || (y < 0)) {
+        if ((x > this.dimension) || (x < 0) || (y > this.dimension) || (y < 0)) {
             throw new HorsBornesException();
         }
         return this.grille[x][y];

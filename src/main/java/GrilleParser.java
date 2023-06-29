@@ -7,8 +7,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Méthodes utilitaire permettant de créer une Grille à partir d'un fichier texte.
- * Il est attendu que la première ligne contiennet : le symbole de case vide, suivi des symboles possibles dans la grille (en UTF-8).
+ * Méthodes utilitaire permettant de créer.
+ * une Grille à partir d'un fichier texte
+ * Il est attendu que la première ligne contiennet
+ * le symbole de case vide, suivi des symboles possibles dans la grille (en UTF-8).
  * Les autres lignes contiennent le contenu de la grille.
  * <p>
  * Exemple:
@@ -34,11 +36,10 @@ public class GrilleParser {
      * @throws IOException format de grille en caractere incorrect
      * @throws ValeurImpossibleException si la grille ne respècte pas les règles
      */
-    public static Grille parse(final InputStream in)
-        throws IOException,  ValeurInitialeModificationException, HorsBornesException, ValeurImpossibleException {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
-
-
+    public static Grille parse(final InputStream in) throws IOException,  
+        ValeurInitialeModificationException, HorsBornesException, ValeurImpossibleException {
+        try (BufferedReader reader = new BufferedReader(
+            new InputStreamReader(in, StandardCharsets.UTF_8))) {
             String line = reader.readLine();
             if (line == null || line.length() == 0) {
                 throw new IllegalArgumentException("pas de première ligne ?");
@@ -60,7 +61,8 @@ public class GrilleParser {
             if (elementDeGrilleMap.size() != dimension) {
                 throw new IllegalArgumentException("pas le bon nombre de valeurs possibles");
             }
-            ElementDeGrille[] elementDeGrilles = elementDeGrilleMap.values().toArray(new ElementDeGrille[]{});
+            ElementDeGrille[] elementDeGrilles = elementDeGrilleMap.values().toArray(
+                new ElementDeGrille[]{});
             ElementDeGrille[][] grilleTab = new ElementDeGrille[dimension][dimension];
 
             for (int i = 0; i < dimension; i++) {

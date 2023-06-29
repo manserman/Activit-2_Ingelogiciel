@@ -14,7 +14,7 @@ public interface Solveur {
      */
     public static boolean solve(Grille grille) {
         int dimension = grille.getDimension();
-        if(grille.isComplete()) {
+        if (grille.isComplete()) {
             return true;
         }
         for (int x = 0; x < dimension; x++) {
@@ -59,9 +59,9 @@ public interface Solveur {
             } else {
                 System.out.println("Solution trouvée :");
                 for (int i = 0; i < grille.getDimension(); i++) {
-                    line=new String();
+                    line = new String();
                     for (int j = 0; j < grille.getDimension(); j++) {
-                        line=line + " " + String.valueOf(grille.getValue(i, j).getValeur());  
+                        line = line + " " + String.valueOf(grille.getValue(i, j).getValeur());  
                     }
                     System.out.println(line);
                 }
