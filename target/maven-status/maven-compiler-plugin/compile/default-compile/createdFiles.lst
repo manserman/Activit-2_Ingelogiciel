@@ -1,0 +1,5 @@
+exceptions\ValeurImpossibleException.class
+sudoku\ElementDeGrilleImplAsChar.class
+exceptions\ValeurInitialeModificationException.class
+sudoku\ElementDeGrille.class
+exceptions\HorsBornesException.class
