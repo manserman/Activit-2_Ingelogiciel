@@ -37,6 +37,10 @@ public class ElementDeGrilleImplAsChar implements ElementDeGrille {
         }
         return false;
     }
+    @Override
+    public int hashCode() {
+      return Character.hashCode(valeur);
+    }
     /**
      * Obtient la valeur de l'élément de grille.
      * @return La valeur de l'élément.
