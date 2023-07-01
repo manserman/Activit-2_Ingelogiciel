@@ -23,7 +23,18 @@ public class GrilleTest {
 
    private static final String TEST_GRID_FILE = "/grilles/sudoku16-a.txt";
 private static final int GRID_SIZE = 16;
-
+    /**
+     * Affecte une valeur dans une case de la grille, ou null pour 'vider' la case.
+     *
+     * @param x     position x dans la grille
+     * @param y     position y dans la grille
+     * @param value élément de grille à mettre dans la case, null pour vider la case
+     * @throws ValeurImpossibleException           si l'élément de grille n'est pas autorisé à cette position
+     *                                             dans la grille aux vues des autres valeurs de la grille
+     * @throws ElementInterditException            si l'élément de grille n'est pas autorisé dans cette grille
+     * @throws HorsBornesException                 si x ou y sont en dehors de la grille
+     * @throws ValeurInitialeModificationException si une valeur initiale de la grille est en position x,y
+     */
 @Test
 public void testSetValueHorsBornes() throws IOException, ValeurImpossibleException,
         ValeurInitialeModificationException, HorsBornesException, ElementInterditException {
@@ -38,7 +49,18 @@ public void testSetValueHorsBornes() throws IOException, ValeurImpossibleExcepti
         // Exception attendue
     }
 }
-
+    /**
+     * Affecte une valeur dans une case de la grille, ou null pour 'vider' la case.
+     *
+     * @param x     position x dans la grille
+     * @param y     position y dans la grille
+     * @param value élément de grille à mettre dans la case, null pour vider la case
+     * @throws ValeurImpossibleException           si l'élément de grille n'est pas autorisé à cette position
+     *                                             dans la grille aux vues des autres valeurs de la grille
+     * @throws ElementInterditException            si l'élément de grille n'est pas autorisé dans cette grille
+     * @throws HorsBornesException                 si x ou y sont en dehors de la grille
+     * @throws ValeurInitialeModificationException si une valeur initiale de la grille est en position x,y
+     */
 @Test
 public void testSetValueValeursImpossible() throws IOException, HorsBornesException,
         ValeurImpossibleException, ValeurInitialeModificationException, ElementInterditException {
@@ -54,7 +76,18 @@ public void testSetValueValeursImpossible() throws IOException, HorsBornesExcept
         // Exception attendue
     }
 }
-
+    /**
+     * Affecte une valeur dans une case de la grille, ou null pour 'vider' la case.
+     *
+     * @param x     position x dans la grille
+     * @param y     position y dans la grille
+     * @param value élément de grille à mettre dans la case, null pour vider la case
+     * @throws ValeurImpossibleException           si l'élément de grille n'est pas autorisé à cette position
+     *                                             dans la grille aux vues des autres valeurs de la grille
+     * @throws ElementInterditException            si l'élément de grille n'est pas autorisé dans cette grille
+     * @throws HorsBornesException                 si x ou y sont en dehors de la grille
+     * @throws ValeurInitialeModificationException si une valeur initiale de la grille est en position x,y
+     */
 @Test
 public void testSetValueCaractereInterditImpossible() throws IOException, HorsBornesException,
         ValeurImpossibleException, ValeurInitialeModificationException, ElementInterditException {
@@ -69,7 +102,18 @@ public void testSetValueCaractereInterditImpossible() throws IOException, HorsBo
         // Exception attendue
     }
 }
-
+    /**
+     * Affecte une valeur dans une case de la grille, ou null pour 'vider' la case.
+     *
+     * @param x     position x dans la grille
+     * @param y     position y dans la grille
+     * @param value élément de grille à mettre dans la case, null pour vider la case
+     * @throws ValeurImpossibleException           si l'élément de grille n'est pas autorisé à cette position
+     *                                             dans la grille aux vues des autres valeurs de la grille
+     * @throws ElementInterditException            si l'élément de grille n'est pas autorisé dans cette grille
+     * @throws HorsBornesException                 si x ou y sont en dehors de la grille
+     * @throws ValeurInitialeModificationException si une valeur initiale de la grille est en position x,y
+     */
 @Test
 public void testSetValueValeurInitialeModification() throws IOException, HorsBornesException,
         ValeurImpossibleException, ValeurInitialeModificationException, ElementInterditException {
@@ -86,7 +130,18 @@ public void testSetValueValeurInitialeModification() throws IOException, HorsBor
         // Exception attendue
     }
 }
-
+    /**
+     * Affecte une valeur dans une case de la grille, ou null pour 'vider' la case.
+     *
+     * @param x     position x dans la grille
+     * @param y     position y dans la grille
+     * @param value élément de grille à mettre dans la case, null pour vider la case
+     * @throws ValeurImpossibleException           si l'élément de grille n'est pas autorisé à cette position
+     *                                             dans la grille aux vues des autres valeurs de la grille
+     * @throws ElementInterditException            si l'élément de grille n'est pas autorisé dans cette grille
+     * @throws HorsBornesException                 si x ou y sont en dehors de la grille
+     * @throws ValeurInitialeModificationException si une valeur initiale de la grille est en position x,y
+     */
 @Test
 public void testSetValue() throws IOException, HorsBornesException,
         ValeurImpossibleException, ValeurInitialeModificationException, ElementInterditException {
@@ -100,7 +155,17 @@ public void testSetValue() throws IOException, HorsBornesException,
     grille.setValue(1, 1, element1);
     assertEquals(element1, grille.getValue(1, 1));
 }
-
+    /**
+     * Teste si une valeur peut être placée dans la grille.
+     *
+     * @param x     position x dans la grille
+     * @param y     position y dans la grille
+     * @param value valeur à mettre dans la case
+     * @return true si value peut être placé dans la grille en position x,y en respectant les règles du sudoku
+     *         et sans modifier une valeur initiale.
+     * @throws HorsBornesException      si x ou y sont hors bornes
+     * @throws ValeurImpossibleException si la valeur est impossible à placer à cette position
+     */
 @Test
 public void testIspossibleValeurImpossible()
         throws IOException, ValeurImpossibleException, ValeurInitialeModificationException, HorsBornesException {
@@ -137,7 +202,17 @@ public void testIspossibleValeurImpossible()
         // Exception attendue
     }
 }
-
+    /**
+     * Teste si une valeur peut être placée dans la grille.
+     *
+     * @param x     position x dans la grille
+     * @param y     position y dans la grille
+     * @param value valeur à mettre dans la case
+     * @return true si value peut être placé dans la grille en position x,y en respectant les règles du sudoku
+     *         et sans modifier une valeur initiale.
+     * @throws HorsBornesException      si x ou y sont hors bornes
+     * @throws ValeurImpossibleException si la valeur est impossible à placer à cette position
+     */
 @Test
 public void testIspossibleHorsBorne()
         throws IOException, ValeurImpossibleException, ValeurInitialeModificationException, HorsBornesException {
@@ -153,7 +228,17 @@ public void testIspossibleHorsBorne()
         // Exception attendue
     }
 }
-
+    /**
+     * Teste si une valeur peut être placée dans la grille.
+     *
+     * @param x     position x dans la grille
+     * @param y     position y dans la grille
+     * @param value valeur à mettre dans la case
+     * @return true si value peut être placé dans la grille en position x,y en respectant les règles du sudoku
+     *         et sans modifier une valeur initiale.
+     * @throws HorsBornesException      si x ou y sont hors bornes
+     * @throws ValeurImpossibleException si la valeur est impossible à placer à cette position
+     */
 @Test
 public void testIspossible()
         throws IOException, ValeurImpossibleException, ValeurInitialeModificationException, HorsBornesException {
@@ -174,7 +259,11 @@ public void testIspossible()
         // Exception attendue
     }
 }
-
+/**
+* Teste si une grille est remplie.
+*
+* @return true si la grille est complete
+*/
 @Test
 public void testIsComplete()
         throws IOException, ValeurImpossibleException, ValeurInitialeModificationException, HorsBornesException {
@@ -203,7 +292,13 @@ public void testIsValeurInitiiale()
     assertTrue(grille.isValeurInitiale(0, 0));
     assertFalse(grille.isValeurInitiale(0, 1));
 }
-
+/**
+* Renvoie une valeur de la grille.
+* @param x position x dans la grille
+* @param y position y dans la grille
+* @return élément de la grille de la case x,y, null s'il n'y a pas d'élément à cette position
+* @throws HorsBornesException si x ou y sont en dehors de la grille
+*/
 @Test
 public void testGetValueHorsBornes() throws ValeurImpossibleException,
         ValeurInitialeModificationException, HorsBornesException, IOException, ElementInterditException {
@@ -217,7 +312,13 @@ public void testGetValueHorsBornes() throws ValeurImpossibleException,
         // Exception attendue
     }
 }
-
+/**
+* Renvoie une valeur de la grille.
+* @param x position x dans la grille
+* @param y position y dans la grille
+* @return élément de la grille de la case x,y, null s'il n'y a pas d'élément à cette position
+* @throws HorsBornesException si x ou y sont en dehors de la grille
+*/
 @Test
 public void testGetValue() throws ValeurImpossibleException,
         ValeurInitialeModificationException, HorsBornesException, IOException, ElementInterditException {
