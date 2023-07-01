@@ -37,7 +37,6 @@ public class ElementDeGrilleImplAsChar implements ElementDeGrille {
         }
         return false;
     }
-    
     /**
      * Obtient la valeur de l'élément de grille.
      * @return La valeur de l'élément.
