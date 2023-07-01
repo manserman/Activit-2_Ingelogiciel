@@ -63,37 +63,6 @@ import exceptions.ValeurInitialeModificationException;
         return false;
     }
 
-    public int countPossibleElements(Grille grille, int x, int y) throws HorsBornesException {// compter le nombre de  choix possibles par case
-        int count = 0;
-        for (ElementDeGrille element : grille.getElements()) {
-            try {
-                if (grille.isPossible(x, y, element)) {
-                    count++;
-                }
-            } catch (ValeurImpossibleException e) {
-                // Ignorer les valeurs impossibles
-            }
-        }
-        return count;
-    }
-
-    public  List<ElementDeGrille> getPossibleElements(Grille grille, int x, int y) {// Méthode pour avoir la liste des éléments possibles par case vide pour éviter de tester tous les éléments
-        List<ElementDeGrille> possibleElements = new ArrayList<>();
-        for (ElementDeGrille element : grille.getElements()) {
-            try {
-                if (grille.isPossible(x, y, element)) {
-                    possibleElements.add(element);
-                }
-            } catch (ValeurImpossibleException e) {
-                // Ignorer les valeurs impossibles
-            } catch (HorsBornesException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
-        return possibleElements;
-    }
-
     public static void main(String[] args) {
         InputStream in = GrilleParser.class.getResourceAsStream("/grilles/sudoku16-expert.txt");
         try { 
