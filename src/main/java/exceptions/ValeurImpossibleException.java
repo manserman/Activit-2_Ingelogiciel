@@ -25,8 +25,10 @@ public class ValeurImpossibleException  extends Exception {
    }
    /**
      * Constructeur de ValeurImpossibleException avec une valeur spécifique.
+     *
+     * @param value la valeur qui a causé l'exception
      */
-   public ValeurImpossibleException() {
+   public ValeurImpossibleException(final ElementDeGrille value) {
       super("Saisie impossible car non respect des regles");
    }
 }
