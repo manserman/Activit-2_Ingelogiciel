@@ -121,6 +121,26 @@ public class GrilleTest {
         } catch (ValeurImpossibleException e) {
 
         }
+         ElementDeGrille element1 = new ElementDeGrilleImplAsChar('8');
+          try {
+            grille.isPossible(1, 0, element1);
+            fail("ValeurImposisbleException aurait du être levee");
+        } catch (ValeurImpossibleException e) {
+
+        }
+          try {
+            grille.isPossible(6, 3, element1);
+            fail("ValeurImposisbleException aurait du être levee");
+        } catch (ValeurImpossibleException e) {
+     
+        }
+           ElementDeGrille element2 = new ElementDeGrilleImplAsChar('9');
+         try {
+            grille.isPossible(2, 0, element2);
+            fail("ValeurImposisbleException aurait du être levee");
+        } catch (ValeurImpossibleException e) {
+
+        }
     }
 
     @Test
@@ -149,6 +169,7 @@ public class GrilleTest {
 
         try {
             assertTrue(grille.isPossible(0, 1, element0));
+            
 
         } catch (ValeurImpossibleException e) {
 
