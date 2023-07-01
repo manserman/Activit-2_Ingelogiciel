@@ -15,11 +15,4 @@ public class ElementInterditException extends Exception {
    public ElementInterditException() {
        super("Saisie impossible car la valeur n'est pas comprise entre 0 et 9");
    }
-   /**
-    * Constructeur de ElementInterditException avec un message personnalisé.
-    * @param valueOf la valeur incorrecte qui a été saisie
-    */
-   public ElementInterditException(final String valueOf) {
-
-   }
 }
