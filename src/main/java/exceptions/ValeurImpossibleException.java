@@ -1,7 +1,5 @@
 package exceptions;
-
 import sudoku.ElementDeGrille;
-
 
 /**
  * Activité 2, ValeurImpossibleException.java.
@@ -12,15 +10,26 @@ import sudoku.ElementDeGrille;
  * class ValeurImpossibleException .
  */
 public class ValeurImpossibleException  extends Exception {
-   public ValeurImpossibleException (  ) {
+   /**
+     * Constructeur par défaut de ValeurImpossibleException.
+     */
+   public ValeurImpossibleException() {
       super("Saisie impossible car la valur ne fais pas partie de l'alphabet");
    }
-
-   public ValeurImpossibleException(String valueOf) {
+   /**
+     * Constructeur de ValeurImpossibleException avec une valeur spécifique.
+     *
+     * @param valueOf la valeur qui a causé l'exception
+     */
+   public ValeurImpossibleException(final String valueOf) {
       super(valueOf);
    }
-
-   public ValeurImpossibleException( ElementDeGrille value) {
+   /**
+     * Constructeur de ValeurImpossibleException avec une valeur spécifique.
+     *
+     * @param value la valeur qui a causé l'exception
+     */
+   public ValeurImpossibleException(final ElementDeGrille value) {
       super("Saisie impossible car non respect des regles");
    }
 }
