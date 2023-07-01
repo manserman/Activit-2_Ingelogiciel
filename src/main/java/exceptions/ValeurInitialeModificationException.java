@@ -1,7 +1,7 @@
 package exceptions;
    /**
    * Activité 2, ValeurInitialeModificationException.java.
-   * @author Mohamadou Mansour
+   * @author Mohamadou Mansour & Tshibangu
    * package-info.java: toutes les infos sur le package
    */
 public class ValeurInitialeModificationException  extends Exception {
