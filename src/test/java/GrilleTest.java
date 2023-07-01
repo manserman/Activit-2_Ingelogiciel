@@ -141,6 +141,14 @@ public class GrilleTest {
         } catch (ValeurImpossibleException e) {
 
         }
+    
+    
+         try {
+            grille.isPossible(2, 0, null);
+            fail("ValeurImposisbleException aurait du être levee");
+        } catch (ValeurImpossibleException e) {
+
+        }
     }
 
     @Test
