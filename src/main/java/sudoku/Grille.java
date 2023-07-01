@@ -1,21 +1,18 @@
 package sudoku;
 import java.util.Set;
-
 import exceptions.ElementInterditException;
 import exceptions.HorsBornesException;
 import exceptions.ValeurImpossibleException;
 import exceptions.ValeurInitialeModificationException;
-
    /**
     * Interface de grille de sudoku. 
     * Chaque case d'une Grille peut contenir un ElementDeGrille 
-    * ou null si aucun élément n'est placé.
-    * Une Grille doit toujours respecter les règles du sudoku.
-    * Une Grille peut contenir des cases qui ne doivent pas être modifiées (les valeurs initiales de la Grille)
+    * ou null si aucun élément n'est placé
+    * Une Grille doit toujours respecter les règles du sudoku
+    * Une Grille peut contenir des cases qui ne doivent pas être modifiées
     * @author Sébastien Choplin <sebastien.choplin@u-picardie.fr>
     */
     public interface Grille {
-    
     /**
      * Renvoie les ElementDeGrille pouvant exister dans le grille.
      * @return un ensemble contenant les éléments de grille possibles
@@ -26,9 +23,8 @@ import exceptions.ValeurInitialeModificationException;
      * @return largeur/hauteur de la grille.
      */
     int getDimension();
-
     /**
-     * Affecte une valeur dans une case de la grille, ou null pour 'vider' la case.
+     * Affecte une valeur dans une case de la grille, null pour 'vider' la case.
      *
      * @param x     position x dans la grille
      * @param y     position y dans la grille
@@ -39,11 +35,9 @@ import exceptions.ValeurInitialeModificationException;
      * @throws HorsBornesException                 si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la grille est en position x,y
      */
-    
-    void setValue(int x, int y, ElementDeGrille value)
-        throws HorsBornesException, ValeurImpossibleException, ElementInterditException, 
-        ValeurInitialeModificationException;
 
+    void setValue(int x, int y, ElementDeGrille value) throws HorsBornesException, 
+            ValeurImpossibleException, ElementInterditException, ValeurInitialeModificationException;
     /**
      * Renvoie une valeur de la grille.
      * @param x position x dans la grille

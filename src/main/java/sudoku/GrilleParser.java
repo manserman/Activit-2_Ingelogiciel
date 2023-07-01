@@ -14,8 +14,9 @@ import exceptions.ValeurInitialeModificationException;
 /**
  * Méthodes utilitaire permettant de créer.
  * une Grille à partir d'un fichier texte
- * Il est attendu que la première ligne contiennet
- * le symbole de case vide, suivi des symboles possibles dans la grille (en UTF-8).
+ * Il est attendu que la première ligne contiennent
+ * le symbole de case vide, suivi des symboles possibles 
+ * dans la grille (en UTF-8)
  * Les autres lignes contiennent le contenu de la grille.
  * <p>
  * Exemple:
@@ -39,7 +40,10 @@ public class GrilleParser {
      * Fonction parse.
      * @param in recu
      * @throws IOException format de grille en caractere incorrect
-     * @throws ValeurImpossibleException si la grille ne respècte pas les règles
+     * @throws ValeurInitialeModificationException si une valeur initiale est modifiée
+     * @throws HorsBornesException si une coordonnée est hors des bornes de la grille
+     * @throws ValeurImpossibleException si la grille ne respecte pas les règles
+     * @return retour
      */
     public static Grille parse(final InputStream in) throws IOException,  
         ValeurInitialeModificationException, HorsBornesException, ValeurImpossibleException {
