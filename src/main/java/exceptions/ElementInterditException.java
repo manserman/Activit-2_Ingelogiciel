@@ -11,10 +11,6 @@ package exceptions;
  */
 public class ElementInterditException extends Exception {
     
-   /**
-    * Constructeur par défaut de ElementInterditException.
-    * Il crée une nouvelle instance de l'exception avec un message prédéfini.
-    */
    public ElementInterditException() {
        super("Saisie impossible car la valeur n'est pas comprise entre 0 et 9");
    }

@@ -7,10 +7,8 @@ package exceptions;
  * class HorsBornesEception.
  */
 public class HorsBornesException  extends Exception {
-   /**
-    * Constructeur par défaut de HorsBornesException.
-    */
-   public HorsBornesException() {
+
+   public HorsBornesException(){
       super("case hors bornes");
    }
 }

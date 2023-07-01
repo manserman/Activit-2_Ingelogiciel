@@ -12,7 +12,7 @@ import sudoku.ElementDeGrille;
  * class ValeurImpossibleException .
  */
 public class ValeurImpossibleException  extends Exception {
-   public ValeurImpossibleException () {
+   public ValeurImpossibleException (  ) {
       super("Saisie impossible car la valur ne fais pas partie de l'alphabet");
    }
 
@@ -20,7 +20,7 @@ public class ValeurImpossibleException  extends Exception {
       super(valueOf);
    }
 
-   public ValeurImpossibleException(ElementDeGrille value) {
+   public ValeurImpossibleException( ElementDeGrille value) {
       super("Saisie impossible car non respect des regles");
    }
 }
