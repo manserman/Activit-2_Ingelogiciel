@@ -1,13 +1,13 @@
 package exceptions;
 /**
  * Activité 2, ElementInterditException.java.
- * Auteur : Mohamadou Mansour
+ * Auteur : Mohamadou Mansour & Tshibangu Kevin
  * package-info.java: toutes les infos sur le package
  */
 /**
  * Classe ElementInterditException.
- * Cette exception est levée lorsque la valeur 
- * saisie n'est pas comprise entre 0 et 9
+ * Cette exception est levée lorsque la valeur saisie n'est pas comprise 
+ * entre 0 et 9
  */
 public class ElementInterditException extends Exception {
     /**
