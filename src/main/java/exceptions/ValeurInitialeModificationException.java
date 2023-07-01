@@ -6,7 +6,7 @@ package exceptions;
    */
 public class ValeurInitialeModificationException  extends Exception {
    /**
-    * Constructeur par défaut de la classe ValeurInitialeModificationException
+    * Constructeur par défaut de la classe ValeurInitialeModificationException.
     * Il crée une nouvelle exception avec le message d'avertissement
     */
    public ValeurInitialeModificationException() {
