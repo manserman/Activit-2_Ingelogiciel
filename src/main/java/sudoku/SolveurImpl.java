@@ -22,7 +22,7 @@ import exceptions.ValeurInitialeModificationException;
      */
     
     @Override
-    public static boolean solve(Grille grille) {
+    public boolean solve(Grille grille) {
         int dimension = grille.getDimension();
         if (grille.isComplete()) {
             return true;
