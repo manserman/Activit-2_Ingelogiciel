@@ -7,8 +7,7 @@ package exceptions;
 public class ValeurInitialeModificationException  extends Exception {
    /**
     * Constructeur par défaut de la classe ValeurInitialeModificationException
-    * Il crée une nouvelle exception avec le message spécifiant qu'il est impossible 
-    * de modifier les valeurs initiales.
+    * Il crée une nouvelle exception avec le message d'avertissement
     */
    public ValeurInitialeModificationException() {
       super("Impossible de modifier les veleurs initiales");

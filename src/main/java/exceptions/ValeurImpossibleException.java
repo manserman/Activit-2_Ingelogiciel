@@ -1,4 +1,5 @@
 package exceptions;
+package package.package-info.java;
 import sudoku.ElementDeGrille;
 /**
  * Activité 2, ValeurImpossibleException.java.

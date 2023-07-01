@@ -6,8 +6,7 @@ package exceptions;
  */
 /**
  * Classe ElementInterditException.
- * Cette exception est levée lorsque la valeur saisie n'est pas comprise 
- * entre 0 et 9
+ * Cette exception est levée car elle doit être entre 0 et 9
  */
 public class ElementInterditException extends Exception {
     /**
