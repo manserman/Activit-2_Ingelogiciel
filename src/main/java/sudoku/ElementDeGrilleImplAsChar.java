@@ -17,8 +17,6 @@ public class ElementDeGrilleImplAsChar implements ElementDeGrille {
         super();
         this.valeur = value;
     }
-  
-    @Override
     public boolean equals(final Object elem) {
         if (!(elem instanceof ElementDeGrilleImplAsChar)) {
             return false;

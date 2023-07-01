@@ -1,11 +1,9 @@
 package sudoku;
 import java.util.Set;
-
 import exceptions.ElementInterditException;
 import exceptions.HorsBornesException;
 import exceptions.ValeurImpossibleException;
 import exceptions.ValeurInitialeModificationException;
-
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -45,26 +43,26 @@ public class GrilleImpl implements Grille {
 
     @Override
     public void setValue(final int x, final int y, final ElementDeGrille value) 
-        throws HorsBornesException, ValeurImpossibleException, ElementInterditException, ValeurInitialeModificationException {
-    	   if (x < 0 || x >= dimension || y < 0 || y >= dimension) {
-    	        throw new HorsBornesException();
-    	    }
-    	if (isValeurInitiale(x, y)) {
-            throw new ValeurInitialeModificationException();
-        }
-        if (!isJouable(x, y, value) || isValeurInitiale(x, y)) {
-            throw new ValeurImpossibleException(value);}
-        
-       
-
-        if (value != null && !isAlphabet(value)) {
-            throw new ElementInterditException();
-        }
-        this.grille[x][y] = value;
+        throws HorsBornesException, ValeurImpossibleException, ElementInterditException, 
+            ValeurInitialeModificationException {
+                if (x < 0 || x >= dimension || y < 0 || y >= dimension) {
+                    throw new HorsBornesException();
+                }
+                if (isValeurInitiale(x, y)) {
+                    throw new ValeurInitialeModificationException();
+                }
+                if (!isJouable(x, y, value) || isValeurInitiale(x, y)) {
+                    throw new ValeurImpossibleException(value);
+                }
+                if (value != null && !isAlphabet(value)) {
+                    throw new ElementInterditException();
+                }
+                this.grille[x][y] = value;
     }
 
     @Override
-    public ElementDeGrille getValue(final int x, final int y) throws HorsBornesException {
+    public ElementDeGrille getValue(final int x, final int y) 
+        throws HorsBornesException {
         if ((x > this.dimension) || (x < 0) || (y > this.dimension) || (y < 0)) {
             throw new HorsBornesException();
         }
@@ -84,22 +82,20 @@ public class GrilleImpl implements Grille {
     }
 
    @Override
-public boolean isPossible(int x, int y, ElementDeGrille value) throws HorsBornesException, ValeurImpossibleException {
-     if (x < 0 || x >= dimension || y < 0 || y >= dimension) {
-    	        throw new HorsBornesException();
-    	    }
-    if (value == null && !isValeurInitiale(x, y)) {
+    public boolean isPossible(int x, int y, ElementDeGrille value) 
+        throws HorsBornesException, ValeurImpossibleException {
+        if (x < 0 || x >= dimension || y < 0 || y >= dimension) {
+                    throw new HorsBornesException();
+                }
+        if (value == null && !isValeurInitiale(x, y)) {
+            return true;
+        }
+
+        if (!isJouable(x, y, value) || isValeurInitiale(x, y)) {
+            throw new ValeurImpossibleException(value);
+        }
         return true;
     }
-
-    if (!isJouable(x, y, value) || isValeurInitiale(x, y)) {
-        throw new ValeurImpossibleException(value);
-    }
-
-   
-
-    return true;
-}
 
     @Override
     public boolean isValeurInitiale(final int x, final int y) {
@@ -123,7 +119,7 @@ public boolean isPossible(int x, int y, ElementDeGrille value) throws HorsBornes
     public boolean isAlphabet(final ElementDeGrille element) {
         Iterator<ElementDeGrille> iterator = this.alphabet.iterator();
         while (iterator.hasNext()) {
-            if(iterator.next().equals(element)) {
+            if (iterator.next().equals(element)) {
                 return true;
             }
         }
@@ -163,4 +159,3 @@ public boolean isPossible(int x, int y, ElementDeGrille value) throws HorsBornes
     }
 
 }
-
