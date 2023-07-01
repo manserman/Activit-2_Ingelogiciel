@@ -1,4 +1,3 @@
-import package.*;
 package exceptions;
 import sudoku.ElementDeGrille;
 /**
