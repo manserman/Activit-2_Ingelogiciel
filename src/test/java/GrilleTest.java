@@ -19,8 +19,8 @@ import sudoku.Grille;
 import sudoku.GrilleImpl;
 import sudoku.GrilleParser;
 /**
- * Implémentation de des tests unitaires
- * 
+ * Implémentation de des tests unitaires.
+ *
  * @author : Groupe_Z
  */
 public class GrilleTest {
@@ -28,23 +28,26 @@ public class GrilleTest {
 * chemin de la grille que nous alons utiliser pour les test.
 */
 private static final String TEST_GRID_FILE = "/grilles/sudoku16-a.txt";
+/**
+* taille de la grille que nous alons utiliser pour les test.
+*/
 private static final int GRID_SIZE = 16;
     /**
      * Affecte une valeur dans une case de la grille, ou null pourviderla case.
      *
-     * @throws ValeurImpossibleException si l'élément de grille n'est pas 
+     * @throws ValeurImpossibleException si l'élément de grille n'est pas
      * autorisé à cette position dans la grille aux vues des autres valeurs
      * de la grille
-     * @throws ElementInterditException si l'élément de grille n'est pas autorisé
-     *  dans cette grille
+     * @throws ElementInterditException si l'élément de grille n'est pas 
+     * autorisé dans cette grille
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * @throws IOException  
+     * @throws IOException
      */
 @Test
 public final void testSetValueHorsBornes() throws IOException,
-     HorsBornesException,ValeurImpossibleException,
+     HorsBornesException, ValeurImpossibleException,
      ValeurInitialeModificationException, ElementInterditException {
     InputStream in = GrilleParser.class.getResourceAsStream(TEST_GRID_FILE);
 
@@ -60,19 +63,19 @@ public final void testSetValueHorsBornes() throws IOException,
     /**
      * Affecte une valeur dans une case de la grille, ou null pourviderla case.
      *
-     * @throws ValeurImpossibleException si l'élément de grille n'est pas 
+     * @throws ValeurImpossibleException si l'élément de grille n'est pas
      * autorisé à cette position dans la grille aux vues des autres valeurs
      * de la grille
-     * @throws ElementInterditException si l'élément de grille n'est pas autorisé
-     *  dans cette grille
+     * @throws ElementInterditException si l'élément de grille n'est pas
+     * autorisé dans cette grille
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * @throws IOException  
+     * @throws IOException
      */
 @Test
 public final void testSetValueValeursImpossible() throws IOException,
-     HorsBornesException,ValeurImpossibleException,
+     HorsBornesException, ValeurImpossibleException,
      ValeurInitialeModificationException, ElementInterditException {
     InputStream in = GrilleParser.class.getResourceAsStream(TEST_GRID_FILE);
 
@@ -89,19 +92,19 @@ public final void testSetValueValeursImpossible() throws IOException,
     /**
      * Affecte une valeur dans une case de la grille, ou null pourviderla case.
      *
-     * @throws ValeurImpossibleException si l'élément de grille n'est pas 
+     * @throws ValeurImpossibleException si l'élément de grille n'est pas
      * autorisé à cette position dans la grille aux vues des autres valeurs
      * de la grille
-     * @throws ElementInterditException si l'élément de grille n'est pas autorisé
-     *  dans cette grille
+     * @throws ElementInterditException si l'élément de grille n'est pas
+     * autorisé dans cette grille
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * @throws IOException  
+     * @throws IOException
      */
 @Test
 public final void testSetValueCaractereInterditImpossible() throws IOException,
-     HorsBornesException,ValeurImpossibleException,
+     HorsBornesException, ValeurImpossibleException,
      ValeurInitialeModificationException, ElementInterditException {
     ElementDeGrille element = new ElementDeGrilleImplAsChar(':');
     InputStream in = GrilleParser.class.getResourceAsStream(TEST_GRID_FILE);
@@ -117,19 +120,19 @@ public final void testSetValueCaractereInterditImpossible() throws IOException,
     /**
      * Affecte une valeur dans une case de la grille, ou null pourviderla case.
      *
-     * @throws ValeurImpossibleException si l'élément de grille n'est pas 
+     * @throws ValeurImpossibleException si l'élément de grille n'est pas
      * autorisé à cette position dans la grille aux vues des autres valeurs
      * de la grille
-     * @throws ElementInterditException si l'élément de grille n'est pas autorisé
-     *  dans cette grille
+     * @throws ElementInterditException si l'élément de grille n'est pas
+     * autorisé dans cette grille
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * @throws IOException  
+     * @throws IOException
      */
 @Test
 public final void testSetValueValeurInitialeModification() throws IOException,
-     HorsBornesException,ValeurImpossibleException,
+     HorsBornesException, ValeurImpossibleException,
      ValeurInitialeModificationException, ElementInterditException {
 
     ElementDeGrille element0 = new ElementDeGrilleImplAsChar('0');
@@ -147,19 +150,19 @@ public final void testSetValueValeurInitialeModification() throws IOException,
     /**
      * Affecte une valeur dans une case de la grille, ou null pourviderla case.
      *
-     * @throws ValeurImpossibleException si l'élément de grille n'est pas 
+     * @throws ValeurImpossibleException si l'élément de grille n'est pas
      * autorisé à cette position dans la grille aux vues des autres valeurs
      * de la grille
-     * @throws ElementInterditException si l'élément de grille n'est pas autorisé
-     *  dans cette grille
+     * @throws ElementInterditException si l'élément de grille n'est pas
+     * autorisé dans cette grille
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * @throws IOException  
+     * @throws IOException
      */
 @Test
 public final  void testSetValue() throws IOException,
-     HorsBornesException,ValeurImpossibleException,
+     HorsBornesException, ValeurImpossibleException,
      ValeurInitialeModificationException, ElementInterditException {
     InputStream in = GrilleParser.class.getResourceAsStream(TEST_GRID_FILE);
 
@@ -174,14 +177,12 @@ public final  void testSetValue() throws IOException,
     /**
      * Teste si une valeur peut être placée dans la grille.
      *
-     * @return true si value peut être placé dans la grille en position x,y
-     * en respectant les règles du sudoku et sans modifier une valeur initiale.
      * @throws HorsBornesException      si x ou y sont hors bornes
      * @throws ValeurImpossibleException si la valeur est impossible à placer
      * à cette position
      * @throws ValeurInitialeModificationException si une valeur initiale de
      *  la grille est en position x,y
-     * @throws IOException 
+     * @throws IOException
      */
 @Test
 public final void testIspossibleValeurImpossible()
@@ -223,14 +224,12 @@ public final void testIspossibleValeurImpossible()
      /**
      * Teste si une valeur peut être placée dans la grille.
      *
-     * @return true si value peut être placé dans la grille en position x,y
-     *  en respectant les règles du sudoku et sans modifier une valeur initiale.
      * @throws HorsBornesException      si x ou y sont hors bornes
      * @throws ValeurImpossibleException si la valeur est impossible à placer
      *  à cette position
      * @throws ValeurInitialeModificationException si une valeur initiale de
      *  la grille est en position x,y
-     * @throws IOException 
+     * @throws IOException
      */
 @Test
 public final void testIspossibleHorsBorne()
@@ -251,14 +250,12 @@ public final void testIspossibleHorsBorne()
      /**
      * Teste si une valeur peut être placée dans la grille.
      *
-     * @return true si value peut être placé dans la grille en position x,y 
-     * en respectant les règles du sudoku et sans modifier une valeur initiale.
      * @throws HorsBornesException      si x ou y sont hors bornes
      * @throws ValeurImpossibleException si la valeur est impossible à placer
      *  à cette position
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      *  grille est en position x,y
-     * @throws IOException 
+     * @throws IOException
      */
 @Test
 public final void testIspossible()
@@ -289,7 +286,7 @@ public final void testIspossible()
      * à cette position
      * @throws ValeurInitialeModificationException si une valeur initiale de
      * la grille est en position x,y
-     * @throws IOException 
+     * @throws IOException
      */
 @Test
 public final void testIsComplete()
@@ -310,13 +307,13 @@ public final void testIsComplete()
     assertTrue(grille1.isComplete());
 }
     /**
-     * Test si la grille est remplie
+     * Test si la grille est remplie.
      * @throws HorsBornesException      si x ou y sont hors bornes
      * @throws ValeurImpossibleException si la valeur est impossible à placer
      * à cette position
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * @throws IOException 
+     * @throws IOException
      */
 @Test
 public final void testIsValeurInitiiale()
@@ -336,12 +333,12 @@ public final void testIsValeurInitiiale()
 * cette position
 * @throws ValeurInitialeModificationException si une valeur initiale de
 * la grille est en position x,y
-* @throws IOException 
+* @throws IOException
+* @throws IOException
 */
 @Test
 public final void testGetValueHorsBornes() throws ValeurImpossibleException,
-        ValeurInitialeModificationException, HorsBornesException, IOException,
-        ElementInterditException {
+        ValeurInitialeModificationException, HorsBornesException, IOException {
     InputStream in = GrilleParser.class.getResourceAsStream(TEST_GRID_FILE);
 
     Grille grille = GrilleParser.parse(in);
@@ -355,16 +352,16 @@ public final void testGetValueHorsBornes() throws ValeurImpossibleException,
 /**
 * Renvoie une valeur de la grille.
 * @throws HorsBornesException      si x ou y sont hors bornes
-* @throws ValeurImpossibleException si la valeur est impossible à 
+* @throws ValeurImpossibleException si la valeur est impossible à
 * placer à cette position
 * @throws ValeurInitialeModificationException si une valeur initiale de la
 * grille est en position x,y
-* @throws IOException 
+* @throws IOException
 */
 @Test
 public final void testGetValue() throws ValeurImpossibleException,
         ValeurInitialeModificationException, HorsBornesException,
-        IOException, ElementInterditException {
+        IOException {
     InputStream in = GrilleParser.class.getResourceAsStream(TEST_GRID_FILE);
 
     Grille grille = GrilleParser.parse(in);
