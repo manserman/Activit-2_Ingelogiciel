@@ -56,7 +56,8 @@ import exceptions.ValeurInitialeModificationException;
     }
 
     // Récursivement essayer chaque choix possible pour la case sélectionnée
-    for (ElementDeGrille element : getPossibleElements(grille, selectedX, selectedY)) {
+    for (ElementDeGrille element : getPossibleElements(grille, selectedX,
+    selectedY)) {
         try {
             if (grille.isPossible(selectedX, selectedY, element)) {
                 grille.setValue(selectedX, selectedY, element);
@@ -83,9 +84,17 @@ import exceptions.ValeurInitialeModificationException;
     // Aucun choix possible n'a conduit à une solution, retourner false
     return false;
 }
-
-public int countPossibleElements(Grille grille, int x, int y) throws 
-         HorsBornesException {
+/**
+ * Méthode qui compte la les éléments possibles pour une
+ * case vide donnée dans la grille.
+ *
+ * @param grille La grille de jeu.
+ * @param x      La coordonnée X de la case.
+ * @param y      La coordonnée Y de la case.
+ * @return Une nombre d'éléments possibles pour la case.
+ */
+public final int countPossibleElements(final Grille grille,final int x,
+               final int y) throws  HorsBornesException {
     // compter le nombre de  choix possibles par case
     int count = 0;
     for (ElementDeGrille element : grille.getElements()) {
@@ -100,8 +109,19 @@ public int countPossibleElements(Grille grille, int x, int y) throws
     return count;
 }
 
-public  List<ElementDeGrille> getPossibleElements(Grille grille, int x, int y) {
-    // Méthode pour avoir la liste des éléments possibles par case vide pour éviter 
+/**
+ * Méthode qui retourne la liste des éléments possibles pour une
+ * case vide donnée dans la grille.
+ *
+ * @param grille La grille de jeu.
+ * @param x      La coordonnée X de la case.
+ * @param y      La coordonnée Y de la case.
+ * @return Une liste d'éléments possibles pour la case vide spécifiée.
+ */
+public final List<ElementDeGrille> getPossibleElements(final Grille grille,
+final int x,final int y) {
+    // Méthode pour avoir la liste des éléments possibles par case
+    //vide pour éviter
     //de tester tous les éléments
     List<ElementDeGrille> possibleElements = new ArrayList<>();
     for (ElementDeGrille element : grille.getElements()) {
