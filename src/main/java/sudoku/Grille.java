@@ -37,9 +37,10 @@ import exceptions.ValeurInitialeModificationException;
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException valeur init en position x,y
      */
-    void setValue(int x, int y, ElementDeGrille value) throws HorsBornesException, 
-            ValeurImpossibleException, ElementInterditException, 
-                ValeurInitialeModificationException;
+    void setValue(int x, int y, ElementDeGrille value) 
+        throws HorsBornesException, ValeurImpossibleException, 
+        ElementInterditException, ValeurInitialeModificationException;
+
     /**
      * Renvoie une valeur de la grille.
      * @param x position x dans la grille

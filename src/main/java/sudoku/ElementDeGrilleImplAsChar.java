@@ -39,10 +39,14 @@ public class ElementDeGrilleImplAsChar implements ElementDeGrille {
         return false;
     }
 
+    /**
+     * Retourne le code de hachage de l'objet.
+     *
+     * @return le code de hachage de l'objet
+     */
     public int hashCode() {
       return Character.hashCode(valeur);
     }
-    
     /**
      * Obtient la valeur de l'élément de grille.
      * @return La valeur de l'élément.
