@@ -23,12 +23,5 @@ public class ValeurImpossibleException  extends Exception {
    public ValeurImpossibleException(final String valueOf) {
       super(valueOf);
    }
-   /**
-     * Constructeur de ValeurImpossibleException avec une valeur spécifique.
-     *
-     * @param value la valeur qui a causé l'exception
-     */
-   public ValeurImpossibleException(final ElementDeGrille value) {
-      super("Saisie impossible car non respect des regles");
-   }
+  
 }

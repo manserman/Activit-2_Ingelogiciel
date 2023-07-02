@@ -4,6 +4,8 @@ import exceptions.ElementInterditException;
 import exceptions.HorsBornesException;
 import exceptions.ValeurImpossibleException;
 import exceptions.ValeurInitialeModificationException;
+
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -40,11 +42,8 @@ public class GrilleImpl implements Grille {
     public GrilleImpl(final ElementDeGrille[] elementDeGrilles,
                     final ElementDeGrille[][] grilleTab) {
         dimension = elementDeGrilles.length;
-        this.alphabet = new HashSet<>();
-        grille = grilleTab;
-            for (int i = 0; i < elementDeGrilles.length; i++) {
-            this.alphabet.add(elementDeGrilles[i]);
-        }
+        this.alphabet = new HashSet<>(Arrays.asList(elementDeGrilles));
+        this.grille = Arrays.copyOf(grilleTab, grilleTab.length);
         // on conserve les valeurs initiales
         setInitialesPositions();
     }
@@ -54,7 +53,7 @@ public class GrilleImpl implements Grille {
      * @return l'ensemble des éléments de la grille
      */
     public final Set<ElementDeGrille> getElements() {
-        return this.alphabet;
+        return new HashSet<>(this.alphabet);
     }
 
     /**
@@ -78,7 +77,8 @@ public class GrilleImpl implements Grille {
      * @throws ValeurInitialeModificationException si une valeur initiale
      *              de la grille est en position x, y
      */
-    public final void setValue(final int x, final int y, final ElementDeGrille value)
+    public final void setValue(final int x, final int y,
+                              final ElementDeGrille value)
         throws HorsBornesException, ValeurImpossibleException,
         ElementInterditException, ValeurInitialeModificationException {
                 if (x < 0 || x >= dimension || y < 0 || y >= dimension) {
@@ -88,7 +88,7 @@ public class GrilleImpl implements Grille {
                     throw new ValeurInitialeModificationException();
                 }
                 if (!isJouable(x, y, value) || isValeurInitiale(x, y)) {
-                    throw new ValeurImpossibleException(value);
+                    throw new ValeurImpossibleException();
                 }
                 if (value != null && !isAlphabet(value)) {
                     throw new ElementInterditException();
@@ -105,8 +105,8 @@ public class GrilleImpl implements Grille {
      */
     public final ElementDeGrille getValue(final int x, final int y)
         throws HorsBornesException {
-        if ((x > this.dimension) || (x < 0)
-        || (y > this.dimension) || (y < 0)) {
+        if (x > this.dimension || x < 0
+        || y > this.dimension || y < 0) {
             throw new HorsBornesException();
         }
         return this.grille[x][y];
@@ -119,7 +119,7 @@ public class GrilleImpl implements Grille {
     public final boolean isComplete() {
         for (int i = 0; i < this.dimension; i++) {
             for (int j = 0; j < this.dimension; j++) {
-                if (this.grille[i][j] == null) { 
+                if (this.grille[i][j] == null) {
                     return false;
                 }
             }
@@ -148,7 +148,7 @@ public class GrilleImpl implements Grille {
         }
 
         if (!isJouable(x, y, value) || isValeurInitiale(x, y)) {
-            throw new ValeurImpossibleException(value);
+            throw new ValeurImpossibleException();
         }
         return true;
     }

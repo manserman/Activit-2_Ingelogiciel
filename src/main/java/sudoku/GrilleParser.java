@@ -40,11 +40,11 @@ public final class GrilleParser {
      * Fonction parse.
      * @param in recu
      * @throws IOException format de grille en caractere incorrect
-     * @throws ValeurInitialeModificationException si une valeur initiale 
+     * @throws ValeurInitialeModificationException si une valeur initiale
      * est modifiée
-     * @throws HorsBornesException si une coordonnée est hors des bornes 
+     * @throws HorsBornesException si une coordonnée est hors des bornes
      * de la grille
-     * @throws ValeurImpossibleException si la grille ne respecte pas les 
+     * @throws ValeurImpossibleException si la grille ne respecte pas les
      * règles
      * @return retour
      */
@@ -59,7 +59,7 @@ public final class GrilleParser {
             }
             final int dimension = line.length() - 1;
             final char vide = line.charAt(0);
-            Map<Character, ElementDeGrille> elementDeGrilleMap = 
+            Map<Character, ElementDeGrille> elementDeGrilleMap =
             new HashMap<>();
             for (int i = 1; i < line.length(); i++) {
                 char value = line.charAt(i);
@@ -67,15 +67,16 @@ public final class GrilleParser {
                     continue;
                 }
                 if (elementDeGrilleMap.containsKey(value)) {
-                    throw new IllegalArgumentException("valeur possible dupliquée : " 
+                throw new IllegalArgumentException("valeur possible dupliquée: "
                     + value);
                 }
-                elementDeGrilleMap.put(value, new ElementDeGrilleImplAsChar(value));
+                elementDeGrilleMap.put(value,
+                new ElementDeGrilleImplAsChar(value));
             }
 
             if (elementDeGrilleMap.size() != dimension) {
-                throw new IllegalArgumentException("pas le bon nombre de valeurs" 
-                + "possibles");
+                throw new IllegalArgumentException("pas le bon nombre"
+                +" de valeurs possibles");
             }
             ElementDeGrille[] elementDeGrilles = elementDeGrilleMap.values()
             .toArray(new ElementDeGrille[]{});
@@ -85,7 +86,7 @@ public final class GrilleParser {
             for (int i = 0; i < dimension; i++) {
                 line = reader.readLine();
                 if (line == null || line.length() != dimension) {
-                    throw new IOException("pas le bon nombre sur la ligne : " 
+                    throw new IOException("pas le bon nombre sur la ligne : "
                     + line);
                 }
                 for (int j = 0; j < dimension; j++) {
