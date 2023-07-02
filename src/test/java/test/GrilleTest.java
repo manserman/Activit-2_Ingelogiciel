@@ -44,7 +44,6 @@ private static final int GRID_SIZE = 16;
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * 
      * @throws IOException
      */
 @Test
@@ -74,7 +73,6 @@ public final void testSetValueHorsBornes() throws IOException,
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * 
      * @throws IOException
      */
 @Test
@@ -104,7 +102,6 @@ public final void testSetValueValeursImpossible() throws IOException,
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * 
      * @throws IOException
      */
 @Test
@@ -133,7 +130,6 @@ public final void testSetValueCaractereInterditImpossible() throws IOException,
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * 
      * @throws IOException
      */
 @Test
@@ -164,7 +160,6 @@ public final void testSetValueValeurInitialeModification() throws IOException,
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * 
      * @throws IOException
      */
 @Test
@@ -189,7 +184,6 @@ public final  void testSetValue() throws IOException,
      * à cette position
      * @throws ValeurInitialeModificationException si une valeur initiale de
      *  la grille est en position x,y
-     * 
      * @throws IOException
      */
 @Test
@@ -239,7 +233,6 @@ public final void testIspossibleValeurImpossible()
      *  à cette position
      * @throws ValeurInitialeModificationException si une valeur initiale de
      *  la grille est en position x,y
-     * 
      * @throws IOException
      */
 @Test
@@ -266,7 +259,6 @@ public final void testIspossibleHorsBorne()
      *  à cette position
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      *  grille est en position x,y
-     * 
      * @throws IOException
      */
 @Test
@@ -298,7 +290,6 @@ public final void testIspossible()
      * à cette position
      * @throws ValeurInitialeModificationException si une valeur initiale de
      * la grille est en position x,y
-     * 
      * @throws IOException
      */
 @Test
@@ -326,7 +317,6 @@ public final void testIsComplete()
      * à cette position
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * 
      * @throws IOException
      */
 @Test
@@ -347,7 +337,6 @@ public final void testIsValeurInitiiale()
 * cette position
 * @throws ValeurInitialeModificationException si une valeur initiale de
 * la grille est en position x,y
-*
 * @throws IOException
 */
 @Test
@@ -370,7 +359,6 @@ public final void testGetValueHorsBornes() throws ValeurImpossibleException,
 * placer à cette position
 * @throws ValeurInitialeModificationException si une valeur initiale de la
 * grille est en position x,y
-*
 * @throws IOException
 */
 @Test
