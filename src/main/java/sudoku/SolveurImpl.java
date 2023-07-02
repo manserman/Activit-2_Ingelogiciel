@@ -68,7 +68,7 @@ import exceptions.ValeurInitialeModificationException;
      */
     public static void main(final String[] args) {
         InputStream in =
-    GrilleParser.class.getResourceAsStream("/grilles/sudoku16-expert.txt");
+    GrilleParser.class.getResourceAsStream("/grilles/sudoku16-a.txt");
         try {
             Grille grille = GrilleParser.parse(in);
             if (!(new SolveurImpl()).solve(grille)) {
