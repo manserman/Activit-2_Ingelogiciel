@@ -92,8 +92,9 @@ import exceptions.ValeurInitialeModificationException;
  * @param x      La coordonnée X de la case.
  * @param y      La coordonnée Y de la case.
  * @return Une nombre d'éléments possibles pour la case.
+ * @throws HorsBornesException quand on est horsbornes
  */
-public final int countPossibleElements(final Grille grille,final int x,
+public final int countPossibleElements(final Grille grille, final int x,
                final int y) throws  HorsBornesException {
     // compter le nombre de  choix possibles par case
     int count = 0;
@@ -104,7 +105,7 @@ public final int countPossibleElements(final Grille grille,final int x,
             }
         } catch (ValeurImpossibleException e) {
             // Ignorer les valeurs impossibles
-            e.printStackTrace();
+            continue;
         }
     }
     return count;
@@ -120,7 +121,7 @@ public final int countPossibleElements(final Grille grille,final int x,
  * @return Une liste d'éléments possibles pour la case vide spécifiée.
  */
 public final List<ElementDeGrille> getPossibleElements(final Grille grille,
-final int x,final int y) {
+final int x, final int y) {
     // Méthode pour avoir la liste des éléments possibles par case
     //vide pour éviter
     //de tester tous les éléments
@@ -132,7 +133,7 @@ final int x,final int y) {
             }
         } catch (ValeurImpossibleException e) {
             // Ignorer les valeurs impossibles
-            e.printStackTrace();
+            continue;
         } catch (HorsBornesException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
