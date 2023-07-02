@@ -36,6 +36,7 @@ private static final int GRID_SIZE = 16;
     /**
      * Affecte une valeur dans une case de la grille, ou null pourviderla case.
      *
+     * @throws IOException en cas d'impossiblité de lecture du fichier
      * @throws ValeurImpossibleException si l'élément de grille n'est pas
      * autorisé à cette position dans la grille aux vues des autres valeurs
      * de la grille
@@ -44,7 +45,7 @@ private static final int GRID_SIZE = 16;
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * @throws IOException
+     * 
      */
 @Test
 public final void testSetValueHorsBornes() throws IOException,
@@ -73,7 +74,7 @@ public final void testSetValueHorsBornes() throws IOException,
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * @throws IOException
+    * @throws IOException en cas d'impossiblité de lecture du fichier
      */
 @Test
 public final void testSetValueValeursImpossible() throws IOException,
@@ -102,7 +103,7 @@ public final void testSetValueValeursImpossible() throws IOException,
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * @throws IOException
+     * @throws IOException en cas d'impossiblité de lecture du fichier
      */
 @Test
 public final void testSetValueCaractereInterditImpossible() throws IOException,
@@ -160,7 +161,7 @@ public final void testSetValueValeurInitialeModification() throws IOException,
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * @throws IOException
+     * @throws IOException en cas d'impossiblité de lecture du fichier
      */
 @Test
 public final  void testSetValue() throws IOException,
@@ -184,7 +185,7 @@ public final  void testSetValue() throws IOException,
      * à cette position
      * @throws ValeurInitialeModificationException si une valeur initiale de
      *  la grille est en position x,y
-     * @throws IOException
+     * @throws IOException en cas d'impossiblité de lecture du fichier
      */
 @Test
 public final void testIspossibleValeurImpossible()
@@ -233,7 +234,7 @@ public final void testIspossibleValeurImpossible()
      *  à cette position
      * @throws ValeurInitialeModificationException si une valeur initiale de
      *  la grille est en position x,y
-     * @throws IOException
+     * @throws IOException en cas d'impossiblité de lecture du fichier
      */
 @Test
 public final void testIspossibleHorsBorne()
@@ -259,7 +260,7 @@ public final void testIspossibleHorsBorne()
      *  à cette position
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      *  grille est en position x,y
-     * @throws IOException
+     * @throws IOException en cas d'impossiblité de lecture du fichier
      */
 @Test
 public final void testIspossible()
@@ -290,7 +291,7 @@ public final void testIspossible()
      * à cette position
      * @throws ValeurInitialeModificationException si une valeur initiale de
      * la grille est en position x,y
-     * @throws IOException
+     * @throws IOException en cas d'impossiblité de lecture du fichier
      */
 @Test
 public final void testIsComplete()
@@ -317,7 +318,7 @@ public final void testIsComplete()
      * à cette position
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * @throws IOException
+     * @throws IOException en cas d'impossiblité de lecture du fichier
      */
 @Test
 public final void testIsValeurInitiiale()
@@ -337,7 +338,7 @@ public final void testIsValeurInitiiale()
 * cette position
 * @throws ValeurInitialeModificationException si une valeur initiale de
 * la grille est en position x,y
-* @throws IOException
+* @throws IOException en cas d'impossiblité de lecture du fichier
 */
 @Test
 public final void testGetValueHorsBornes() throws ValeurImpossibleException,
@@ -359,7 +360,7 @@ public final void testGetValueHorsBornes() throws ValeurImpossibleException,
 * placer à cette position
 * @throws ValeurInitialeModificationException si une valeur initiale de la
 * grille est en position x,y
-* @throws IOException
+* @throws IOException en cas d'impossiblité de lecture du fichier
 */
 @Test
 public final void testGetValue() throws ValeurImpossibleException,
