@@ -4,6 +4,7 @@ import exceptions.ElementInterditException;
 import exceptions.HorsBornesException;
 import exceptions.ValeurImpossibleException;
 import exceptions.ValeurInitialeModificationException;
+
    /**
     * Interface de grille de sudoku. 
     * Chaque case d'une Grille peut contenir un ElementDeGrille 
@@ -23,19 +24,19 @@ import exceptions.ValeurInitialeModificationException;
      * @return largeur/hauteur de la grille.
      */
     int getDimension();
+    
     /**
      * Affecte une valeur dans une case de la grille, null pour 'vider' la case.
      *
      * @param x     position x dans la grille
      * @param y     position y dans la grille
-     * @param value élément de grille à mettre dans la case, null pour vider la case
-     * @throws ValeurImpossibleException élm de grille pas autorisé à cette position
-     *                                   dans la grille aux vues des autres valeurs de la grille
-     * @throws ElementInterditException élm de grille pas autorisé dans cette grille
+     * @param value élément à mettre dans la case, null pour vider la case
+     * @throws ValeurImpossibleException si élm pas autorisé à cette position
+     *                 dans la grille aux vues des autres valeurs de la grille
+     * @throws ElementInterditException élm pas autorisé dans cette grille
      * @throws HorsBornesException si x ou y sont en dehors de la grille
-     * @throws ValeurInitialeModificationException valeur initiale en position x,y
+     * @throws ValeurInitialeModificationException valeur init en position x,y
      */
-
     void setValue(int x, int y, ElementDeGrille value) throws HorsBornesException, 
             ValeurImpossibleException, ElementInterditException, 
                 ValeurInitialeModificationException;
@@ -43,7 +44,7 @@ import exceptions.ValeurInitialeModificationException;
      * Renvoie une valeur de la grille.
      * @param x position x dans la grille
      * @param y position y dans la grille
-     * @return élm de la case x,y, null s'il n'y a pas d'élément à cette position
+     * @return élm de la case x,y, null s'il n'y a pas d'élm à cette position
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      */
     ElementDeGrille getValue(int x, int y) throws HorsBornesException;
@@ -61,7 +62,7 @@ import exceptions.ValeurInitialeModificationException;
      * @param x     position x dans la grille
      * @param y     position y dans la grille
      * @param value valeur à mettre dans la case
-     * @return true si value peut être en position x,y en respectant règles du sudoku
+     * @return true si value être en position x,y respectant règles du sudoku
      *         et sans modifier une valeur initiale
      * @throws HorsBornesException      si x ou y sont hors bornes
      * @throws ValeurImpossibleException si la valeur est impossible à placer
