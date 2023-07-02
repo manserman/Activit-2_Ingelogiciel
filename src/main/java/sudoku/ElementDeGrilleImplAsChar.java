@@ -27,6 +27,7 @@ public class ElementDeGrilleImplAsChar implements ElementDeGrille {
      * @param elem L'objet à comparer.
      * @return true si l'objet est égal à l'élément de grille, sinon false.
      */
+    @Override
     public boolean equals(final Object elem) {
         if (!(elem instanceof ElementDeGrilleImplAsChar)) {
             return false;
@@ -37,14 +38,16 @@ public class ElementDeGrilleImplAsChar implements ElementDeGrille {
         }
         return false;
     }
-    @Override
+
     public int hashCode() {
       return Character.hashCode(valeur);
     }
+    
     /**
      * Obtient la valeur de l'élément de grille.
      * @return La valeur de l'élément.
      */
+    @Override
     public char getValeur() {
         return this.valeur;
     }

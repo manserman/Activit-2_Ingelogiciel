@@ -11,16 +11,35 @@ import java.util.Iterator;
 * Implémentation de l'interface Grille.
 */
 public class GrilleImpl implements Grille {
+
+    /**
+     * Dimension de la grille de Sudoku.
+     */
     private final int dimension;
+
+    /**
+     * Tableau indiquant les lignes initiales de la grille.
+     */
     private boolean[][] lignesInitiales;
+
+    /**
+     * Ensemble des éléments de grille autorisés.
+     */
     private final Set<ElementDeGrille> alphabet;
+
+    /**
+     * Grille de Sudoku.
+     */
     private ElementDeGrille[][] grille;
 
     /**
-     * @param elementDeGrilles.
-     * @param grilleTab
+     * Constructeur de la classe GrilleImpl.
+     *
+     * @param elementDeGrilles le tableau d'éléments de grille
+     * @param grilleTab        le tableau bidimensionnel représentant la grille
      */
-    public GrilleImpl(final ElementDeGrille[] elementDeGrilles, final ElementDeGrille[][] grilleTab) {
+    public GrilleImpl(final ElementDeGrille[] elementDeGrilles, 
+                    final ElementDeGrille[][] grilleTab) {
         dimension = elementDeGrilles.length;
         this.alphabet = new HashSet<>();
         grille = grilleTab;
@@ -31,20 +50,17 @@ public class GrilleImpl implements Grille {
         setInitialesPositions();
     }
     
-    @Override
     public Set<ElementDeGrille> getElements() {
         return this.alphabet;
     }
 
-    @Override
     public int getDimension() {
        return this.dimension;
     }
 
-    @Override
     public void setValue(final int x, final int y, final ElementDeGrille value) 
-        throws HorsBornesException, ValeurImpossibleException, ElementInterditException, 
-            ValeurInitialeModificationException {
+        throws HorsBornesException, ValeurImpossibleException, 
+        ElementInterditException, ValeurInitialeModificationException {
                 if (x < 0 || x >= dimension || y < 0 || y >= dimension) {
                     throw new HorsBornesException();
                 }
@@ -60,16 +76,15 @@ public class GrilleImpl implements Grille {
                 this.grille[x][y] = value;
     }
 
-    @Override
     public ElementDeGrille getValue(final int x, final int y) 
         throws HorsBornesException {
-        if ((x > this.dimension) || (x < 0) || (y > this.dimension) || (y < 0)) {
+        if ((x > this.dimension) || (x < 0) || 
+            (y > this.dimension) || (y < 0)) {
             throw new HorsBornesException();
         }
         return this.grille[x][y];
     }
 
-    @Override
     public boolean isComplete() {
         for (int i = 0; i < this.dimension; i++) {
             for (int j = 0; j < this.dimension; j++) {
@@ -81,8 +96,7 @@ public class GrilleImpl implements Grille {
         return true;
     }
 
-   @Override
-    public boolean isPossible(int x, int y, ElementDeGrille value) 
+    public boolean isPossible(final int x, final int y, final ElementDeGrille value) 
         throws HorsBornesException, ValeurImpossibleException {
         if (x < 0 || x >= dimension || y < 0 || y >= dimension) {
                     throw new HorsBornesException();
@@ -97,11 +111,13 @@ public class GrilleImpl implements Grille {
         return true;
     }
 
-    @Override
     public boolean isValeurInitiale(final int x, final int y) {
        return lignesInitiales[x][y];
     }
 
+    /**
+     * Définit les positions initiales dans la grille.
+     */
     private void setInitialesPositions() {
         lignesInitiales = new boolean[dimension][dimension];
         for (int i = 0; i < this.dimension; i++) {
@@ -115,7 +131,12 @@ public class GrilleImpl implements Grille {
         }
     }
 
-
+    /**
+     * Vérifie si l'élément donné fait partie de l'alphabet de la grille.
+     *
+     * @param element l'élément à vérifier
+     * @return true si l'élément fait partie de l'alphabet, false sinon
+     */
     public boolean isAlphabet(final ElementDeGrille element) {
         Iterator<ElementDeGrille> iterator = this.alphabet.iterator();
         while (iterator.hasNext()) {
@@ -126,17 +147,28 @@ public class GrilleImpl implements Grille {
         return false;
     }
 
-    public boolean isJouable(final int x, final int y, final ElementDeGrille element) {
+    /**
+     * Vérifie si élm donné peut être joué à la position spécifiée.
+     *
+     * @param x       la position x dans la grille
+     * @param y       la position y dans la grille
+     * @param element l'élément à jouer
+     * @return true si l'élément peut être joué à cette position, false sinon
+     */
+    public boolean isJouable(final int x, final int y, 
+                            final ElementDeGrille element) {
         // Parcours de la ligne
         for (int i = 0; i < this.dimension; i++) {
-            if (i != x && this.grille[i][y] != null && this.grille[i][y].equals(element)) {
+            if (i != x && this.grille[i][y] != null && 
+                this.grille[i][y].equals(element)) {
                 return false;
             }
         }
 
         // Parcours de la colonne
         for (int i = 0; i < this.dimension; i++) {
-            if (i != y && this.grille[x][i] != null && this.grille[x][i].equals(element)) {
+            if (i != y && this.grille[x][i] != null && 
+                this.grille[x][i].equals(element)) {
                 return false;
             }
         }
@@ -150,7 +182,8 @@ public class GrilleImpl implements Grille {
 
         for (int i = sousGrilleXDebut; i < sousGrilleXFin; i++) {
             for (int j = sousGrilleYDebut; j < sousGrilleYFin; j++) {
-                if (i != x && j != y && this.grille[i][j] != null && this.grille[i][j].equals(element)) {
+                if (i != x && j != y && this.grille[i][j] != null && 
+                    this.grille[i][j].equals(element)) {
                     return false;
                 }
             }
