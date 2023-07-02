@@ -49,15 +49,39 @@ public class GrilleImpl implements Grille {
         // on conserve les valeurs initiales
         setInitialesPositions();
     }
-    
+
+    /**
+     * Obtient l'ensemble des éléments de la grille.
+     *
+     * @return l'ensemble des éléments de la grille
+     */
     public Set<ElementDeGrille> getElements() {
         return this.alphabet;
     }
 
+    /**
+     * Obtient la dimension de la grille.
+     *
+     * @return la dimension de la grille
+     */
     public int getDimension() {
        return this.dimension;
     }
 
+    /**
+     * Affecte une valeur à une case de la grille.
+     *
+     * @param x     la position x dans la grille
+     * @param y     la position y dans la grille
+     * @param value l'élément de grille à mettre dans la case
+     * @throws ValeurImpossibleException n'est pas autorisé à cette position
+     *               dans la grille aux vues des autres valeurs de la grille
+     * @throws ElementInterditException  si l'élément de grille n'est pas 
+     *              autorisé dans cette grille
+     * @throws HorsBornesException si x ou y sont en dehors
+     * @throws ValeurInitialeModificationException si une valeur initiale 
+     *              de la grille est en position x, y
+     */
     public void setValue(final int x, final int y, final ElementDeGrille value) 
         throws HorsBornesException, ValeurImpossibleException, 
         ElementInterditException, ValeurInitialeModificationException {
@@ -76,15 +100,28 @@ public class GrilleImpl implements Grille {
                 this.grille[x][y] = value;
     }
 
+    /**
+     * Obtient l'élément de grille à la position spécifiée.
+     *
+     * @param x la position x dans la grille
+     * @param y la position y dans la grille
+     * @return l'élément de grille à la position spécifiée
+     * @throws HorsBornesException si x ou y sont en dehors de la grille
+     */
     public ElementDeGrille getValue(final int x, final int y) 
         throws HorsBornesException {
-        if ((x > this.dimension) || (x < 0) || 
-            (y > this.dimension) || (y < 0)) {
+        if ((x > this.dimension) || (x < 0) 
+        || (y > this.dimension) || (y < 0)) {
             throw new HorsBornesException();
         }
         return this.grille[x][y];
     }
 
+    /**
+     * Vérifie si la grille complète, c-à-d si toutes les cases sont remplies.
+     *
+     * @return true si la grille est complète, false sinon
+     */
     public boolean isComplete() {
         for (int i = 0; i < this.dimension; i++) {
             for (int j = 0; j < this.dimension; j++) {
@@ -96,8 +133,18 @@ public class GrilleImpl implements Grille {
         return true;
     }
 
-    public boolean isPossible(final int x, final int y, final ElementDeGrille value) 
-        throws HorsBornesException, ValeurImpossibleException {
+    /**
+     * Vérifie si la valeur donnée est possible pour la case aux 
+     *          coordonnées spécifiées.
+     *
+     * @param x     position x de la case
+     * @param y     position y de la case
+     * @param value valeur à tester
+     * @return true si la valeur est possible, false sinon
+     */
+    public boolean isPossible(final int x, final int y, 
+        final ElementDeGrille value) throws HorsBornesException, 
+        ValeurImpossibleException {
         if (x < 0 || x >= dimension || y < 0 || y >= dimension) {
                     throw new HorsBornesException();
                 }
@@ -111,6 +158,14 @@ public class GrilleImpl implements Grille {
         return true;
     }
 
+    /**
+     * Vérifie si la case aux coordonnées spécifiées contient 
+     *          une valeur initiale.
+     *
+     * @param x position x de la case
+     * @param y position y de la case
+     * @return true si la case contient une valeur initiale, false sinon
+     */
     public boolean isValeurInitiale(final int x, final int y) {
        return lignesInitiales[x][y];
     }
@@ -159,16 +214,16 @@ public class GrilleImpl implements Grille {
                             final ElementDeGrille element) {
         // Parcours de la ligne
         for (int i = 0; i < this.dimension; i++) {
-            if (i != x && this.grille[i][y] != null && 
-                this.grille[i][y].equals(element)) {
+            if (i != x && this.grille[i][y] != null 
+            && this.grille[i][y].equals(element)) {
                 return false;
             }
         }
 
         // Parcours de la colonne
         for (int i = 0; i < this.dimension; i++) {
-            if (i != y && this.grille[x][i] != null && 
-                this.grille[x][i].equals(element)) {
+            if (i != y && this.grille[x][i] != null 
+            && this.grille[x][i].equals(element)) {
                 return false;
             }
         }
@@ -182,8 +237,8 @@ public class GrilleImpl implements Grille {
 
         for (int i = sousGrilleXDebut; i < sousGrilleXFin; i++) {
             for (int j = sousGrilleYDebut; j < sousGrilleYFin; j++) {
-                if (i != x && j != y && this.grille[i][j] != null && 
-                    this.grille[i][j].equals(element)) {
+                if (i != x && j != y && this.grille[i][j] != null 
+                && this.grille[i][j].equals(element)) {
                     return false;
                 }
             }
