@@ -104,6 +104,7 @@ public final int countPossibleElements(final Grille grille,final int x,
             }
         } catch (ValeurImpossibleException e) {
             // Ignorer les valeurs impossibles
+            e.printStackTrace();
         }
     }
     return count;
@@ -131,6 +132,7 @@ final int x,final int y) {
             }
         } catch (ValeurImpossibleException e) {
             // Ignorer les valeurs impossibles
+            e.printStackTrace();
         } catch (HorsBornesException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
