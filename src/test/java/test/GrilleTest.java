@@ -1,3 +1,4 @@
+package test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -38,7 +39,7 @@ private static final int GRID_SIZE = 16;
      * @throws ValeurImpossibleException si l'élément de grille n'est pas
      * autorisé à cette position dans la grille aux vues des autres valeurs
      * de la grille
-     * @throws ElementInterditException si l'élément de grille n'est pas 
+     * @throws ElementInterditException si l'élément de grille n'est pas
      * autorisé dans cette grille
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
@@ -54,7 +55,8 @@ public final void testSetValueHorsBornes() throws IOException,
     Grille grille = GrilleParser.parse(in);
     ElementDeGrille element = new ElementDeGrilleImplAsChar('5');
     try {
-        grille.setValue(GRID_SIZE + 1, GRID_SIZE - 7, element);
+        final int number = 7;
+        grille.setValue(GRID_SIZE + 1, GRID_SIZE - number, element);
         fail("HorsBornesException aurait dû être levée");
     } catch (HorsBornesException e) {
         // Exception attendue
@@ -208,7 +210,9 @@ public final void testIspossibleValeurImpossible()
         // Exception attendue
     }
     try {
-        grille.isPossible(GRID_SIZE - 10, GRID_SIZE - 13, element1);
+        final int number = 10;
+        final int num = 13;
+        grille.isPossible(GRID_SIZE - number, GRID_SIZE - num, element1);
         fail("ValeurImpossibleException aurait dû être levée");
     } catch (ValeurImpossibleException e) {
         // Exception attendue
