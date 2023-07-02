@@ -34,7 +34,6 @@ public class GrilleImpl implements Grille {
 
     /**
      * Constructeur de la classe GrilleImpl.
-     *
      * @param elementDeGrilles le tableau d'éléments de grille
      * @param grilleTab        le tableau bidimensionnel représentant la grille
      */
@@ -52,7 +51,6 @@ public class GrilleImpl implements Grille {
 
     /**
      * Obtient l'ensemble des éléments de la grille.
-     *
      * @return l'ensemble des éléments de la grille
      */
     public Set<ElementDeGrille> getElements() {
@@ -61,7 +59,6 @@ public class GrilleImpl implements Grille {
 
     /**
      * Obtient la dimension de la grille.
-     *
      * @return la dimension de la grille
      */
     public int getDimension() {
@@ -70,7 +67,6 @@ public class GrilleImpl implements Grille {
 
     /**
      * Affecte une valeur à une case de la grille.
-     *
      * @param x     la position x dans la grille
      * @param y     la position y dans la grille
      * @param value l'élément de grille à mettre dans la case
@@ -102,7 +98,6 @@ public class GrilleImpl implements Grille {
 
     /**
      * Obtient l'élément de grille à la position spécifiée.
-     *
      * @param x la position x dans la grille
      * @param y la position y dans la grille
      * @return l'élément de grille à la position spécifiée
@@ -119,7 +114,6 @@ public class GrilleImpl implements Grille {
 
     /**
      * Vérifie si la grille complète, c-à-d si toutes les cases sont remplies.
-     *
      * @return true si la grille est complète, false sinon
      */
     public boolean isComplete() {
@@ -136,10 +130,11 @@ public class GrilleImpl implements Grille {
     /**
      * Vérifie si la valeur donnée est possible pour la case aux 
      *          coordonnées spécifiées.
-     *
      * @param x     position x de la case
      * @param y     position y de la case
      * @param value valeur à tester
+     * @throws HorsBornesException si x ou y sont en dehors de la grille
+     * @throws ValeurImpossibleException si la val pas autorisée à cette pos
      * @return true si la valeur est possible, false sinon
      */
     public boolean isPossible(final int x, final int y, 
@@ -161,7 +156,6 @@ public class GrilleImpl implements Grille {
     /**
      * Vérifie si la case aux coordonnées spécifiées contient 
      *          une valeur initiale.
-     *
      * @param x position x de la case
      * @param y position y de la case
      * @return true si la case contient une valeur initiale, false sinon
