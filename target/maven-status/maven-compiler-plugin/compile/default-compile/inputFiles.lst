@@ -1,12 +1,11 @@
 C:\Users\etudiant\Activité2 ingélogiciel\src\main\java\package-info.java
 C:\Users\etudiant\Activité2 ingélogiciel\src\main\java\sudoku\GrilleImpl.java
 C:\Users\etudiant\Activité2 ingélogiciel\src\main\java\sudoku\GrilleParser.java
+C:\Users\etudiant\Activité2 ingélogiciel\src\main\java\exceptions\package-info.java
 C:\Users\etudiant\Activité2 ingélogiciel\src\main\java\exceptions\ElementInterditException.java
 C:\Users\etudiant\Activité2 ingélogiciel\src\main\java\sudoku\ElementDeGrille.java
 C:\Users\etudiant\Activité2 ingélogiciel\src\main\java\exceptions\HorsBornesException.java
 C:\Users\etudiant\Activité2 ingélogiciel\src\main\java\exceptions\ValeurInitialeModificationException.java
 C:\Users\etudiant\Activité2 ingélogiciel\src\main\java\sudoku\ElementDeGrilleImplAsChar.java
-C:\Users\etudiant\Activité2 ingélogiciel\src\main\java\sudoku\SolveurImpl.java
 C:\Users\etudiant\Activité2 ingélogiciel\src\main\java\exceptions\ValeurImpossibleException.java
 C:\Users\etudiant\Activité2 ingélogiciel\src\main\java\sudoku\Grille.java
-C:\Users\etudiant\Activité2 ingélogiciel\src\main\java\sudoku\Solveur.java

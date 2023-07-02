@@ -1,8 +1,6 @@
 package sudoku;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 import exceptions.ElementInterditException;
 import exceptions.HorsBornesException;
@@ -20,22 +18,21 @@ import exceptions.ValeurInitialeModificationException;
      * @param grille Grille à résoudre
      * @return true si la grille a été résolue
      */
-    
     @Override
-    public boolean solve(Grille grille) {
+    public final boolean solve(final Grille grille) {
         int dimension = grille.getDimension();
         if (grille.isComplete()) {
             return true;
         }
         for (int x = 0; x < dimension; x++) {
-            for (int y = 0; y < dimension; y++) {  
+            for (int y = 0; y < dimension; y++) {
                 try {
                     // si la case est vide
                     if (grille.getValue(x, y) == null) {
                         // parcourir les élements
-                       Innerloop: for (ElementDeGrille element : 
-                            grille.getElements()) {
-                            // il on peut placer l'élément en respectant les règles
+                       Innerloop: for (ElementDeGrille element
+                       : grille.getElements()) {
+            // il on peut placer l'élément en respectant les règles
                             try {
                             if (grille.isPossible(x, y, element)) {
                                 // Place l'élément dans la grille
@@ -46,7 +43,7 @@ import exceptions.ValeurInitialeModificationException;
                                     return true;
                                 }
         // Aucun élément ne peut être placé ici, la solution est impossible
-                                grille.setValue(x, y, null); 
+                                grille.setValue(x, y, null);
                             }
                         } catch (ValeurImpossibleException e) {
                     continue Innerloop;
@@ -54,13 +51,12 @@ import exceptions.ValeurInitialeModificationException;
                     }
                         return false;
                     }
-                }
-                catch (HorsBornesException | ElementInterditException | 
-                        ValeurInitialeModificationException e) {
+                } catch (HorsBornesException | ElementInterditException
+                        | ValeurInitialeModificationException e) {
                     e.printStackTrace();
                 }
-            }  
-        }   
+            }
+        }
         // La grille est complète, la solution est trouvée
         return false;
     }
@@ -70,7 +66,7 @@ import exceptions.ValeurInitialeModificationException;
      *
      * @param args les arguments de la ligne de commande
      */
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         InputStream in = 
     GrilleParser.class.getResourceAsStream("/grilles/sudoku16-expert.txt");
         try { 
@@ -78,20 +74,19 @@ import exceptions.ValeurInitialeModificationException;
             Grille grille = GrilleParser.parse(in);
             if (!(new SolveurImpl()).solve(grille)) {
                 System.out.println("Aucune solution trouvée.");
-            
             } else {
                 System.out.println("Solution trouvée :");
                 for (int i = 0; i < grille.getDimension(); i++) {
                     line = new String();
                     for (int j = 0; j < grille.getDimension(); j++) {
-                        line = line + " " + 
-                        String.valueOf(grille.getValue(i, j).getValeur());  
+                        line = line + " "
+                     + String.valueOf(grille.getValue(i, j).getValeur());
                     }
                     System.out.println(line);
                 }
             }
-        } catch (IOException | ValeurInitialeModificationException | 
-                HorsBornesException | ValeurImpossibleException e) {
+        } catch (IOException | ValeurInitialeModificationException
+               | HorsBornesException | ValeurImpossibleException e) {
             e.printStackTrace();
         }
     }

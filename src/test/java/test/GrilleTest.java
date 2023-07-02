@@ -45,7 +45,7 @@ private static final int GRID_SIZE = 16;
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * 
+     *
      */
 @Test
 public final void testSetValueHorsBornes() throws IOException,
@@ -131,7 +131,7 @@ public final void testSetValueCaractereInterditImpossible() throws IOException,
      * @throws HorsBornesException si x ou y sont en dehors de la grille
      * @throws ValeurInitialeModificationException si une valeur initiale de la
      * grille est en position x,y
-     * @throws IOException
+     * @throws IOException en cas d'impossiblité de lecture du fichier
      */
 @Test
 public final void testSetValueValeurInitialeModification() throws IOException,
