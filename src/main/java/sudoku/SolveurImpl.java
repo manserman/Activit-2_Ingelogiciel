@@ -14,7 +14,7 @@ import exceptions.ValeurInitialeModificationException;
  *
  * @author Sébastien Choplin <sebastien.choplin@u-picardie.fr>
  */
- public class SolveurImpl implements Solveur{
+ public class SolveurImpl implements Solveur {
     /**
      * Résoud une Grille.
      * @param grille Grille à résoudre
@@ -33,18 +33,19 @@ import exceptions.ValeurInitialeModificationException;
                     // si la case est vide
                     if (grille.getValue(x, y) == null) {
                         // parcourir les élements
-                       Innerloop: for (ElementDeGrille element : grille.getElements()) {
+                       Innerloop: for (ElementDeGrille element : 
+                            grille.getElements()) {
                             // il on peut placer l'élément en respectant les règles
-                            try{
+                            try {
                             if (grille.isPossible(x, y, element)) {
                                 // Place l'élément dans la grille
                                 grille.setValue(x, y, element);
                                 // on cherche à remplir d'autres cases vides
                                 if (solve(grille)) {
-                                    // Récursivement, si la grille est résolue, la solution est trouvée
+        // Récursivement, si la grille est résolue, la solution est trouvée
                                     return true;
                                 }
-                                // Aucun élément ne peut être placé ici, la solution est impossible
+        // Aucun élément ne peut être placé ici, la solution est impossible
                                 grille.setValue(x, y, null); 
                             }
                         } catch (ValeurImpossibleException e) {
@@ -54,7 +55,8 @@ import exceptions.ValeurInitialeModificationException;
                         return false;
                     }
                 }
-                catch (HorsBornesException | ElementInterditException | ValeurInitialeModificationException e) {
+                catch (HorsBornesException | ElementInterditException | 
+                        ValeurInitialeModificationException e) {
                     e.printStackTrace();
                 }
             }  
@@ -63,8 +65,14 @@ import exceptions.ValeurInitialeModificationException;
         return false;
     }
 
+    /**
+     * Point d'entrée de l'application.
+     *
+     * @param args les arguments de la ligne de commande
+     */
     public static void main(String[] args) {
-        InputStream in = GrilleParser.class.getResourceAsStream("/grilles/sudoku16-expert.txt");
+        InputStream in = 
+    GrilleParser.class.getResourceAsStream("/grilles/sudoku16-expert.txt");
         try { 
             String line;
             Grille grille = GrilleParser.parse(in);
@@ -76,12 +84,14 @@ import exceptions.ValeurInitialeModificationException;
                 for (int i = 0; i < grille.getDimension(); i++) {
                     line = new String();
                     for (int j = 0; j < grille.getDimension(); j++) {
-                        line = line + " " + String.valueOf(grille.getValue(i, j).getValeur());  
+                        line = line + " " + 
+                        String.valueOf(grille.getValue(i, j).getValeur());  
                     }
                     System.out.println(line);
                 }
             }
-        } catch (IOException | ValeurInitialeModificationException | HorsBornesException | ValeurImpossibleException e) {
+        } catch (IOException | ValeurInitialeModificationException | 
+                HorsBornesException | ValeurImpossibleException e) {
             e.printStackTrace();
         }
     }
