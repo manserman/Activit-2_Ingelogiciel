@@ -76,7 +76,7 @@ public final class GrilleParser {
 
             if (elementDeGrilleMap.size() != dimension) {
                 throw new IllegalArgumentException("pas le bon nombre"
-                +" de valeurs possibles");
+                + " de valeurs possibles");
             }
             ElementDeGrille[] elementDeGrilles = elementDeGrilleMap.values()
             .toArray(new ElementDeGrille[]{});

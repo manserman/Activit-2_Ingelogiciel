@@ -67,10 +67,9 @@ import exceptions.ValeurInitialeModificationException;
      * @param args les arguments de la ligne de commande
      */
     public static void main(final String[] args) {
-        InputStream in = 
+        InputStream in =
     GrilleParser.class.getResourceAsStream("/grilles/sudoku16-expert.txt");
-        try { 
-            
+        try {
             Grille grille = GrilleParser.parse(in);
             if (!(new SolveurImpl()).solve(grille)) {
                 System.out.println("Aucune solution trouvée.");
@@ -80,9 +79,10 @@ import exceptions.ValeurInitialeModificationException;
                     StringBuffer buf = new StringBuffer();
                     for (int j = 0; j < grille.getDimension(); j++) {
                         buf.append(" ");
-                     buf.append(String.valueOf(grille.getValue(i, j).getValeur()));
+                     buf.append(String.valueOf(grille.getValue(i, j)
+                     .getValeur()));
                     }
-                    System.out.println( buf.toString());
+                    System.out.println(buf.toString());
                 }
             }
         } catch (IOException | ValeurInitialeModificationException

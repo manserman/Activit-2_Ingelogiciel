@@ -1,5 +1,4 @@
 package exceptions;
-import sudoku.ElementDeGrille;
 /**
  * Activité 2, ValeurImpossibleException.java.
  *
@@ -23,5 +22,4 @@ public class ValeurImpossibleException  extends Exception {
    public ValeurImpossibleException(final String valueOf) {
       super(valueOf);
    }
-  
 }
